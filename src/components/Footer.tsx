@@ -21,7 +21,7 @@ const socialLinks = [
     url: 'https://www.google.com/maps/search/?api=1&query=R.+Mourato+Coelho+838+Vila+Madalena+São+Paulo+SP',
     icon: MapPin,
     color: 'text-neon-orange',
-    label: 'R. Mourato Coelho, 838'
+    label: 'R. Mourato Coelho, 838 - Vila Madalena - SP'
   }
 ];
 

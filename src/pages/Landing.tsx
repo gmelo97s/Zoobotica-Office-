@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Instagram, MessageCircle, Globe } from 'lucide-react';
 import supraLogo from '@/assets/supra-logo.jpg';
 
 export const Landing = () => {
   const navigate = useNavigate();
   
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 animated-gradient opacity-30 -z-10" />
       
@@ -69,9 +70,20 @@ export const Landing = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="space-y-3"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground text-glow-orange">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-black text-foreground tracking-tight"
+            style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' }}
+            animate={{ 
+              textShadow: [
+                '0 0 20px hsl(var(--neon-orange) / 0.5)',
+                '0 0 30px hsl(var(--neon-orange) / 0.7)',
+                '0 0 20px hsl(var(--neon-orange) / 0.5)',
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
             MUITO MAIS QUE UM BAR
-          </h1>
+          </motion.h1>
           <div className="flex items-center justify-center gap-2 text-2xl">
             <span>🔥</span>
             <span className="text-neon-orange font-bold">Vila Madalena</span>
@@ -101,51 +113,67 @@ export const Landing = () => {
           </Button>
         </motion.div>
         
-        {/* Info Card */}
+        {/* Social Links */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
-          className="glass p-6 rounded-xl space-y-3"
-        >
-          <div className="flex items-center justify-center gap-2 text-neon-orange">
-            <span>📍</span>
-            <p className="font-semibold">R. Mourato Coelho, 838</p>
-          </div>
-          
-          <div className="border-t border-border pt-3 space-y-2 text-sm">
-            <p className="text-muted-foreground font-semibold">⏰ HORÁRIOS:</p>
-            <div className="space-y-1 text-muted-foreground">
-              <p>Qua-Qui: 17h-01h</p>
-              <p className="text-neon-orange font-semibold">Sex-Sáb: 17h-04h 🔥</p>
-              <p>Dom: 17h-01h</p>
-            </div>
-          </div>
-        </motion.div>
-        
-        {/* Social Links Quick */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
           className="flex gap-4 justify-center"
         >
-          <a
+          <motion.a
             href="https://www.instagram.com/suprabarvilamadalena/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full glass flex items-center justify-center hover:glow-magenta transition-all duration-300"
+            className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            animate={{ 
+              boxShadow: [
+                '0 0 15px hsl(var(--neon-magenta) / 0.4)',
+                '0 0 25px hsl(var(--neon-magenta) / 0.6)',
+                '0 0 15px hsl(var(--neon-magenta) / 0.4)',
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
           >
-            <span className="text-2xl">📷</span>
-          </a>
-          <a
+            <Instagram className="text-neon-magenta" size={24} />
+          </motion.a>
+          <motion.a
             href="https://api.whatsapp.com/send/?phone=5511912851547"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full glass flex items-center justify-center hover:glow-green transition-all duration-300"
+            className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            animate={{ 
+              boxShadow: [
+                '0 0 15px hsl(var(--neon-green) / 0.4)',
+                '0 0 25px hsl(var(--neon-green) / 0.6)',
+                '0 0 15px hsl(var(--neon-green) / 0.4)',
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
           >
-            <span className="text-2xl">💬</span>
-          </a>
+            <MessageCircle className="text-neon-green" size={24} />
+          </motion.a>
+          <motion.a
+            href="https://suprabar.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            animate={{ 
+              boxShadow: [
+                '0 0 15px hsl(var(--neon-blue) / 0.4)',
+                '0 0 25px hsl(var(--neon-blue) / 0.6)',
+                '0 0 15px hsl(var(--neon-blue) / 0.4)',
+              ]
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <Globe className="text-neon-blue" size={24} />
+          </motion.a>
         </motion.div>
       </div>
     </div>
