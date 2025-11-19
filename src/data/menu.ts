@@ -76,36 +76,29 @@ export const categories: Category[] = [
     id: 'cervejas',
     name: 'Cervejas',
     icon: '🍺',
-    gradient: 'linear-gradient(135deg, hsl(48 100% 50%) 0%, hsl(40 80% 40%) 100%)',
+    image: 'cervejas',
     itemCount: 9
   },
   {
     id: 'drinks',
     name: 'Drinks & Coquetéis',
     icon: '🍹',
-    gradient: 'linear-gradient(135deg, hsl(330 100% 50%) 0%, hsl(270 100% 50%) 100%)',
+    image: 'drinks',
     itemCount: 12
   },
   {
     id: 'porcoes',
     name: 'Porções & Petiscos',
     icon: '🍔',
-    gradient: 'linear-gradient(135deg, hsl(20 100% 50%) 0%, hsl(0 100% 50%) 100%)',
+    image: 'porcoes',
     itemCount: 10
   },
   {
     id: 'combos',
     name: 'Combos & Promoções',
     icon: '🎉',
-    gradient: 'linear-gradient(135deg, hsl(270 100% 50%) 0%, hsl(330 100% 50%) 100%)',
+    image: 'combos',
     itemCount: 5
-  },
-  {
-    id: 'aniversarios',
-    name: 'Aniversários',
-    icon: '🎂',
-    gradient: 'linear-gradient(135deg, hsl(0 100% 50%) 0%, hsl(60 100% 50%) 25%, hsl(120 100% 50%) 50%, hsl(240 100% 50%) 75%, hsl(330 100% 50%) 100%)',
-    itemCount: 4
   }
 ];
 
@@ -766,67 +759,5 @@ export const products: Product[] = [
     tags: ['happy hour', 'caipirinha', 'dobro', 'promocao'],
     schedule: '17h às 20h',
     promo: true
-  },
-
-  // ANIVERSÁRIOS
-  {
-    id: 'aniversario-15',
-    name: 'Pacote até 15 Convidados',
-    price: null,
-    description: 'VIP + 1 Acompanhante + 1 Drink Cortesia + Decoração Neon',
-    category: 'Aniversários',
-    tags: ['aniversario', 'festa', 'vip', 'decoracao'],
-    maxGuests: 15,
-    includes: [
-      'Entrada VIP para aniversariante',
-      '1 Acompanhante VIP',
-      '1 Drink cortesia da casa',
-      'Decoração neon personalizada'
-    ]
-  },
-  {
-    id: 'aniversario-25',
-    name: 'Pacote até 25 Convidados',
-    price: null,
-    description: 'VIP + 1 Acompanhante + 1 Garrafa Vodka + Decoração + Playlist',
-    category: 'Aniversários',
-    tags: ['aniversario', 'festa', 'vip', 'vodka', 'playlist'],
-    maxGuests: 25,
-    includes: [
-      'Entrada VIP para aniversariante',
-      '1 Acompanhante VIP',
-      '1 Garrafa de Vodka',
-      'Decoração neon completa',
-      'Playlist personalizada'
-    ],
-    popular: true
-  },
-  {
-    id: 'aniversario-35',
-    name: 'Pacote até 35 Convidados',
-    price: null,
-    description: 'VIP + 1 Acompanhante + 1 Vodka + 4 Latas + Decoração + DJ',
-    category: 'Aniversários',
-    tags: ['aniversario', 'festa', 'vip', 'vodka', 'dj'],
-    maxGuests: 35,
-    includes: [
-      'Entrada VIP para aniversariante',
-      '1 Acompanhante VIP',
-      '1 Garrafa de Vodka',
-      '4 Latas de Refri/Suco ou Energético',
-      'Decoração completa',
-      'DJ exclusivo'
-    ],
-    featured: true
-  },
-  {
-    id: 'aniversario-personalizado',
-    name: 'Mais de 35 Convidados',
-    price: null,
-    description: 'Condições especiais via WhatsApp - Pacotes personalizados',
-    category: 'Aniversários',
-    tags: ['aniversario', 'festa', 'personalizado', 'whatsapp'],
-    minGuests: 36,
-    contact: 'WhatsApp para condições especiais'
   }
 ];
