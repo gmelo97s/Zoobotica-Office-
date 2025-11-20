@@ -1,16 +1,25 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Instagram, MessageCircle, Globe } from 'lucide-react';
+import { Instagram, MessageCircle } from 'lucide-react';
 import supraLogo from '@/assets/supra-logo.jpg';
+import supraLogoIcon from '@/assets/supra-logo-icon.png';
+import leaoSupra from '@/assets/leao-supra.jpg';
 
 export const Landing = () => {
   const navigate = useNavigate();
   
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 animated-gradient opacity-30 -z-10" />
+      {/* Background with lion image */}
+      <div className="absolute inset-0 -z-10">
+        <img 
+          src={leaoSupra} 
+          alt="Supra Lion" 
+          className="w-full h-full object-cover blur-sm opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
+      </div>
       
       {/* Floating particles */}
       <div className="absolute inset-0 -z-10">
@@ -160,19 +169,19 @@ export const Landing = () => {
             href="https://suprabar.com.br/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300"
+            className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300 overflow-hidden"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             animate={{ 
               boxShadow: [
-                '0 0 15px hsl(var(--neon-blue) / 0.4)',
-                '0 0 25px hsl(var(--neon-blue) / 0.6)',
-                '0 0 15px hsl(var(--neon-blue) / 0.4)',
+                '0 0 15px hsl(var(--neon-orange) / 0.4)',
+                '0 0 25px hsl(var(--neon-orange) / 0.6)',
+                '0 0 15px hsl(var(--neon-orange) / 0.4)',
               ]
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Globe className="text-neon-blue" size={24} />
+            <img src={supraLogoIcon} alt="Supra Bar" className="w-9 h-9 object-contain" />
           </motion.a>
         </motion.div>
       </div>
