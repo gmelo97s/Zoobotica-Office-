@@ -55,7 +55,7 @@ export const categories: Category[] = [
     id: 'runs-cachacas',
     name: 'Runs & Cachaças',
     icon: '🥃',
-    gradient: 'linear-gradient(135deg, hsl(30 100% 40%) 0%, hsl(40 100% 50%) 100%)',
+    image: 'rum-cachaca',
     itemCount: 4
   },
   {
@@ -69,14 +69,14 @@ export const categories: Category[] = [
     id: 'gins',
     name: 'Gins',
     icon: '🍸',
-    image: 'gins-generica',
+    image: 'gin-hq',
     itemCount: 3
   },
   {
     id: 'cervejas',
     name: 'Cervejas',
     icon: '🍺',
-    image: 'cervejas',
+    image: 'corona',
     itemCount: 9
   },
   {
@@ -90,7 +90,7 @@ export const categories: Category[] = [
     id: 'porcoes',
     name: 'Porções & Petiscos',
     icon: '🍔',
-    image: 'porcoes',
+    image: 'porcoes-hq',
     itemCount: 10
   },
   {

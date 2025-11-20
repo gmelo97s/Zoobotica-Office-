@@ -69,9 +69,13 @@ export const Categories = () => {
     'whiskys-generica': new URL('@/assets/whiskys-generica.jpg', import.meta.url).href,
     'vodkas-generica': new URL('@/assets/vodkas-generica.jpg', import.meta.url).href,
     'gins-generica': new URL('@/assets/gins-generica.jpg', import.meta.url).href,
+    'gin-hq': new URL('@/assets/gin-hq.jpg', import.meta.url).href,
     'cervejas': new URL('@/assets/cervejas.jpg', import.meta.url).href,
+    'corona': new URL('@/assets/corona.jpg', import.meta.url).href,
     'drinks': new URL('@/assets/drinks.jpg', import.meta.url).href,
     'porcoes': new URL('@/assets/porcoes.jpg', import.meta.url).href,
+    'porcoes-hq': new URL('@/assets/porcoes-hq.jpg', import.meta.url).href,
+    'rum-cachaca': new URL('@/assets/rum-cachaca.jpg', import.meta.url).href,
     'combos': new URL('@/assets/combos.jpg', import.meta.url).href
   };
   
@@ -175,17 +179,27 @@ export const Categories = () => {
                       >
                         <motion.button
                           onClick={() => position === 'center' && navigate(`/cardapio/${category.id}`)}
-                          className="relative w-[85vw] h-[65vh] max-w-md rounded-2xl overflow-hidden glass cursor-pointer"
+                          className="relative w-[85vw] h-[65vh] max-w-md overflow-hidden glass cursor-pointer"
+                          style={{
+                            borderRadius: '2rem',
+                            border: '6px solid hsl(var(--border) / 0.4)',
+                            boxShadow: position === 'center' 
+                              ? '0 20px 60px -10px hsl(var(--neon-orange) / 0.4)'
+                              : '0 10px 30px -10px rgba(0,0,0,0.3)'
+                          }}
                           whileHover={position === 'center' ? { scale: 1.02 } : {}}
                           whileTap={position === 'center' ? { scale: 0.98 } : {}}
                         >
                           {/* Background Image */}
-                          <div className="absolute inset-0">
+                          <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '1.75rem' }}>
                             {bgImage ? (
                               <img 
                                 src={bgImage} 
                                 alt={category.name} 
                                 className="w-full h-full object-cover"
+                                style={{
+                                  filter: 'brightness(0.75) contrast(1.15) saturate(1.1)',
+                                }}
                               />
                             ) : (
                               <div 
@@ -195,18 +209,23 @@ export const Categories = () => {
                             )}
                           </div>
 
-                          {/* Shine Effect */}
+                          {/* Enhanced Shine Effect */}
                           {position === 'center' && (
                             <motion.div
-                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                              className="absolute inset-0 pointer-events-none"
+                              style={{
+                                background: 'linear-gradient(110deg, transparent 0%, transparent 35%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.5) 55%, transparent 65%, transparent 100%)',
+                                backgroundSize: '200% 100%',
+                                mixBlendMode: 'overlay',
+                                borderRadius: '1.75rem'
+                              }}
                               animate={{
-                                x: ['-200%', '200%'],
+                                backgroundPosition: ['200% 0', '-200% 0'],
                               }}
                               transition={{
-                                duration: 3,
+                                duration: 4,
                                 repeat: Infinity,
-                                ease: 'linear',
-                                repeatDelay: 1,
+                                ease: 'easeInOut',
                               }}
                             />
                           )}
@@ -252,12 +271,16 @@ export const Categories = () => {
                           {/* Border Glow */}
                           {position === 'center' && (
                             <motion.div
-                              className="absolute inset-0 rounded-2xl border-2 border-neon-orange pointer-events-none"
+                              className="absolute inset-0 pointer-events-none"
+                              style={{
+                                borderRadius: '2rem',
+                                border: '3px solid hsl(var(--neon-orange) / 0.6)',
+                              }}
                               animate={{
                                 boxShadow: [
-                                  '0 0 20px hsl(var(--neon-orange) / 0.6)',
-                                  '0 0 40px hsl(var(--neon-orange) / 0.8)',
-                                  '0 0 20px hsl(var(--neon-orange) / 0.6)',
+                                  '0 0 25px hsl(var(--neon-orange) / 0.6)',
+                                  '0 0 45px hsl(var(--neon-orange) / 0.9)',
+                                  '0 0 25px hsl(var(--neon-orange) / 0.6)',
                                 ]
                               }}
                               transition={{ duration: 2, repeat: Infinity }}
