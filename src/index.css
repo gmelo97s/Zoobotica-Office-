@@ -141,4 +141,9 @@ All colors MUST be HSL.
     background-size: 400% 400%;
     animation: gradient-shift 15s ease infinite;
   }
+
+  /* 3D Perspective */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
 }
