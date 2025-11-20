@@ -16,9 +16,13 @@ const imageMap: Record<string, string> = {
   'whiskys-generica': new URL('@/assets/whiskys-generica.jpg', import.meta.url).href,
   'vodkas-generica': new URL('@/assets/vodkas-generica.jpg', import.meta.url).href,
   'gins-generica': new URL('@/assets/gins-generica.jpg', import.meta.url).href,
+  'gin-hq': new URL('@/assets/gin-hq.jpg', import.meta.url).href,
   'cervejas': new URL('@/assets/cervejas.jpg', import.meta.url).href,
+  'corona': new URL('@/assets/corona.jpg', import.meta.url).href,
   'drinks': new URL('@/assets/drinks.jpg', import.meta.url).href,
   'porcoes': new URL('@/assets/porcoes.jpg', import.meta.url).href,
+  'porcoes-hq': new URL('@/assets/porcoes-hq.jpg', import.meta.url).href,
+  'rum-cachaca': new URL('@/assets/rum-cachaca.jpg', import.meta.url).href,
   'combos': new URL('@/assets/combos.jpg', import.meta.url).href
 };
 export const CategoryCard = ({
