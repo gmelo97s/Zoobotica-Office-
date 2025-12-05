@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { motion, AnimatePresence, PanInfo } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface LightboxGalleryProps {
   images: { src: string; alt: string }[];
@@ -9,10 +9,31 @@ interface LightboxGalleryProps {
 export const LightboxGallery = ({ images }: LightboxGalleryProps) => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
+  const handleNext = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage + 1) % images.length);
+    }
+  };
+
+  const handlePrev = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage - 1 + images.length) % images.length);
+    }
+  };
+
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const threshold = 50;
+    if (info.offset.x < -threshold) {
+      handleNext();
+    } else if (info.offset.x > threshold) {
+      handlePrev();
+    }
+  };
+
   return (
     <>
-      {/* Mosaic Grid */}
-      <div className="grid grid-cols-3 gap-1 md:gap-2">
+      {/* Mosaic Grid - 2 columns on mobile, 3 on desktop */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
         {images.map((image, index) => (
           <motion.button
             key={index}
@@ -44,6 +65,7 @@ export const LightboxGallery = ({ images }: LightboxGalleryProps) => {
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
           >
+            {/* Close button */}
             <motion.button
               className="absolute top-4 right-4 z-10 w-12 h-12 rounded-full glass flex items-center justify-center"
               whileHover={{ scale: 1.1 }}
@@ -53,38 +75,46 @@ export const LightboxGallery = ({ images }: LightboxGalleryProps) => {
               <X className="text-foreground" size={24} />
             </motion.button>
 
+            {/* Navigation buttons */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              className="absolute left-4 z-10 w-10 h-10 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <ChevronLeft className="text-foreground" size={24} />
+            </button>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              className="absolute right-4 z-10 w-10 h-10 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <ChevronRight className="text-foreground" size={24} />
+            </button>
+
+            {/* Image with swipe */}
             <motion.div
-              className="relative w-[90vw] h-[80vh] max-w-4xl"
+              className="relative w-[90vw] h-[80vh] max-w-4xl touch-pan-y"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={handleDragEnd}
             >
               <img
                 src={images[selectedImage].src}
                 alt={images[selectedImage].alt}
-                className="w-full h-full object-contain rounded-2xl"
+                className="w-full h-full object-contain rounded-2xl pointer-events-none"
               />
             </motion.div>
-
-            {/* Navigation dots */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedImage(index);
-                  }}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === selectedImage
-                      ? 'bg-neon-orange w-6'
-                      : 'bg-muted-foreground/40'
-                  }`}
-                />
-              ))}
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

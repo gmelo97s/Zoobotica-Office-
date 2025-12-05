@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { categories, products } from '@/data/menu';
@@ -8,6 +8,18 @@ import { SearchResults } from '@/components/SearchResults';
 import { useSearch } from '@/hooks/useSearch';
 import { useDebounce } from '@/hooks/useDebounce';
 import { Product } from '@/data/menu';
+
+// Import high-res category images
+import xequePreto from '@/assets/xeque-preto.png';
+import licorPreto from '@/assets/licor-preto.png';
+import rumPreto from '@/assets/rum-preto.png';
+import vodkaPreto from '@/assets/vodka-preto.png';
+import ginBeefeater from '@/assets/gin-beefeater.png';
+import cervejaPreto from '@/assets/cerveja-preto.png';
+import whiskysGenerica from '@/assets/whiskys-generica.jpg';
+import drinks from '@/assets/drinks.jpg';
+import porcoesHq from '@/assets/porcoes-hq.jpg';
+import combos from '@/assets/combos.jpg';
 
 export const Categories = () => {
   const navigate = useNavigate();
@@ -51,6 +63,15 @@ export const Categories = () => {
     setCurrentIndex((prev) => (prev - 1 + categories.length) % categories.length);
   };
 
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const threshold = 50;
+    if (info.offset.x < -threshold) {
+      handleNext();
+    } else if (info.offset.x > threshold) {
+      handlePrev();
+    }
+  };
+
   const getCardPosition = (index: number) => {
     const diff = index - currentIndex;
     const total = categories.length;
@@ -62,20 +83,18 @@ export const Categories = () => {
     return 'hidden';
   };
 
+  // Map category images to high-res versions
   const imageMap: Record<string, string> = {
-    'licor-43': new URL('@/assets/licor-43.jpg', import.meta.url).href,
-    'xeque-mate': new URL('@/assets/xeque-mate.jpg', import.meta.url).href,
-    'whiskys-generica': new URL('@/assets/whiskys-generica.jpg', import.meta.url).href,
-    'vodkas-generica': new URL('@/assets/vodkas-generica.jpg', import.meta.url).href,
-    'gins-generica': new URL('@/assets/gins-generica.jpg', import.meta.url).href,
-    'gin-hq': new URL('@/assets/gin-hq.jpg', import.meta.url).href,
-    'cervejas': new URL('@/assets/cervejas.jpg', import.meta.url).href,
-    'corona': new URL('@/assets/corona.jpg', import.meta.url).href,
-    'drinks': new URL('@/assets/drinks.jpg', import.meta.url).href,
-    'porcoes': new URL('@/assets/porcoes.jpg', import.meta.url).href,
-    'porcoes-hq': new URL('@/assets/porcoes-hq.jpg', import.meta.url).href,
-    'rum-cachaca': new URL('@/assets/rum-cachaca.jpg', import.meta.url).href,
-    'combos': new URL('@/assets/combos.jpg', import.meta.url).href
+    'abriu-bebeu': xequePreto,
+    'shots': licorPreto,
+    'runs-cachacas': rumPreto,
+    'vodkas': vodkaPreto,
+    'gins': ginBeefeater,
+    'cervejas': cervejaPreto,
+    'whiskys': whiskysGenerica,
+    'drinks': drinks,
+    'porcoes': porcoesHq,
+    'combos': combos
   };
   
   return (
@@ -127,33 +146,47 @@ export const Categories = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="relative h-[calc(100vh-180px)] md:h-[calc(100vh-180px)] flex items-center justify-center overflow-hidden"
+              className="relative h-[calc(100vh-180px)] md:h-[calc(100vh-180px)] flex flex-col items-center justify-center overflow-hidden"
             >
+              {/* Title */}
+              <div className="text-center mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl font-bold text-neon-orange uppercase tracking-wider">
+                  Escolha uma Categoria
+                </h2>
+                <p className="text-sm text-muted-foreground mt-1">Deslize para navegar</p>
+              </div>
+
               {/* Navigation Arrows */}
               <button
                 onClick={handlePrev}
-                className="absolute left-4 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform glow-orange"
+                className="absolute left-2 md:left-4 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform glow-orange"
                 aria-label="Categoria anterior"
               >
-                <ChevronLeft className="text-neon-orange" size={32} />
+                <ChevronLeft className="text-neon-orange" size={24} />
               </button>
 
               <button
                 onClick={handleNext}
-                className="absolute right-4 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform glow-orange"
+                className="absolute right-2 md:right-4 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass flex items-center justify-center hover:scale-110 transition-transform glow-orange"
                 aria-label="Próxima categoria"
               >
-                <ChevronRight className="text-neon-orange" size={32} />
+                <ChevronRight className="text-neon-orange" size={24} />
               </button>
 
-              {/* 3D Carousel */}
-              <div className="relative w-full h-full flex items-center justify-center perspective-1000">
+              {/* 3D Carousel with swipe */}
+              <motion.div 
+                className="relative w-full flex-1 flex items-center justify-center perspective-1000 touch-pan-y"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={handleDragEnd}
+              >
                 <AnimatePresence initial={false}>
                   {categories.map((category, index) => {
                     const position = getCardPosition(index);
                     if (position === 'hidden') return null;
 
-                    const bgImage = category.image && imageMap[category.image];
+                    const bgImage = imageMap[category.id];
 
                     return (
                       <motion.div
@@ -161,16 +194,16 @@ export const Categories = () => {
                         className="absolute"
                         initial={false}
                         animate={{
-                          x: position === 'center' ? 0 : position === 'right' ? '55%' : '-55%',
-                          scale: position === 'center' ? 1 : 0.65,
+                          x: position === 'center' ? 0 : position === 'right' ? '60%' : '-60%',
+                          scale: position === 'center' ? 1 : 0.55,
                           z: position === 'center' ? 50 : 0,
-                          opacity: position === 'center' ? 1 : 0.35,
-                          rotateY: position === 'center' ? 0 : position === 'right' ? -20 : 20,
-                          filter: position === 'center' ? 'blur(0px)' : 'blur(3px)',
+                          opacity: position === 'center' ? 1 : 0.3,
+                          rotateY: position === 'center' ? 0 : position === 'right' ? -25 : 25,
+                          filter: position === 'center' ? 'blur(0px)' : 'blur(4px)',
                         }}
                         transition={{
-                          duration: 0.5,
-                          ease: 'easeInOut'
+                          duration: 0.4,
+                          ease: 'easeOut'
                         }}
                         style={{
                           transformStyle: 'preserve-3d',
@@ -178,26 +211,27 @@ export const Categories = () => {
                       >
                         <motion.button
                           onClick={() => position === 'center' && navigate(`/cardapio/${category.id}`)}
-                          className="relative w-[70vw] h-[55vh] md:w-[75vw] md:h-[60vh] max-w-sm md:max-w-md overflow-hidden glass cursor-pointer"
+                          className="relative w-[55vw] h-[45vh] max-w-[240px] max-h-[320px] md:w-[50vw] md:h-[50vh] md:max-w-[300px] md:max-h-[400px] overflow-hidden cursor-pointer"
                           style={{
-                            borderRadius: '1.5rem',
-                            border: '4px solid hsl(var(--neon-orange) / 0.5)',
+                            borderRadius: '1rem',
+                            border: position === 'center' ? '3px solid hsl(45 100% 50%)' : '2px solid hsl(45 100% 50% / 0.3)',
                             boxShadow: position === 'center' 
-                              ? '0 15px 50px -10px hsl(var(--neon-orange) / 0.5), inset 0 0 0 1px hsl(var(--neon-orange) / 0.2)'
-                              : '0 10px 30px -10px rgba(0,0,0,0.3)'
+                              ? '0 10px 40px -10px hsl(45 100% 50% / 0.5)'
+                              : '0 5px 20px -10px rgba(0,0,0,0.3)',
+                            background: '#0a0a0a'
                           }}
                           whileHover={position === 'center' ? { scale: 1.02 } : {}}
                           whileTap={position === 'center' ? { scale: 0.98 } : {}}
                         >
                           {/* Background Image */}
-                          <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '1.25rem' }}>
+                          <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '0.875rem' }}>
                             {bgImage ? (
                               <img 
                                 src={bgImage} 
                                 alt={category.name} 
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover object-center"
                                 style={{
-                                  filter: 'brightness(0.75) contrast(1.15) saturate(1.1)',
+                                  filter: 'brightness(0.85) contrast(1.1)',
                                 }}
                               />
                             ) : (
@@ -208,78 +242,37 @@ export const Categories = () => {
                             )}
                           </div>
 
-                          {/* Enhanced Shine Effect */}
-                          {position === 'center' && (
-                            <motion.div
-                              className="absolute inset-0 pointer-events-none"
-                              style={{
-                                background: 'linear-gradient(110deg, transparent 0%, transparent 35%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.5) 55%, transparent 65%, transparent 100%)',
-                                backgroundSize: '200% 100%',
-                                mixBlendMode: 'overlay',
-                                borderRadius: '1.75rem'
-                              }}
-                              animate={{
-                                backgroundPosition: ['200% 0', '-200% 0'],
-                              }}
-                              transition={{
-                                duration: 4,
-                                repeat: Infinity,
-                                ease: 'easeInOut',
-                              }}
-                            />
-                          )}
-
                           {/* Gradient Overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
                           {/* Content */}
-                          <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
-                            <motion.h2 
-                              className="text-2xl md:text-3xl font-black text-foreground mb-1 text-glow-orange uppercase"
-                              animate={position === 'center' ? {
-                                textShadow: [
-                                  '0 0 20px hsl(var(--neon-orange) / 0.8)',
-                                  '0 0 30px hsl(var(--neon-orange) / 1)',
-                                  '0 0 20px hsl(var(--neon-orange) / 0.8)',
-                                ]
-                              } : {}}
-                              transition={{ duration: 2, repeat: Infinity }}
+                          <div className="absolute inset-0 flex flex-col justify-end p-4">
+                            <h2 
+                              className="text-lg md:text-xl font-bold text-white mb-1 uppercase"
+                              style={{
+                                textShadow: position === 'center' ? '0 0 15px hsl(45 100% 50% / 0.8)' : 'none'
+                              }}
                             >
                               {category.name}
-                            </motion.h2>
-                            <p className="text-sm md:text-base text-muted-foreground mb-3">
+                            </h2>
+                            <p className="text-xs text-gray-400">
                               {category.itemCount} {category.itemCount === 1 ? 'item' : 'itens'}
                             </p>
-                            {position === 'center' && (
-                              <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="text-neon-orange font-bold flex items-center gap-2 text-xs md:text-sm"
-                              >
-                                <span>TOQUE PARA VER</span>
-                                <motion.span
-                                  animate={{ x: [0, 5, 0] }}
-                                  transition={{ duration: 1, repeat: Infinity }}
-                                >
-                                  →
-                                </motion.span>
-                              </motion.div>
-                            )}
                           </div>
 
-                          {/* Border Glow */}
+                          {/* Border Glow for center */}
                           {position === 'center' && (
                             <motion.div
                               className="absolute inset-0 pointer-events-none"
                               style={{
-                                borderRadius: '1.5rem',
-                                border: '3px solid hsl(var(--neon-orange) / 0.6)',
+                                borderRadius: '1rem',
+                                border: '2px solid hsl(45 100% 50% / 0.6)',
                               }}
                               animate={{
                                 boxShadow: [
-                                  '0 0 25px hsl(var(--neon-orange) / 0.6)',
-                                  '0 0 45px hsl(var(--neon-orange) / 0.9)',
-                                  '0 0 25px hsl(var(--neon-orange) / 0.6)',
+                                  '0 0 15px hsl(45 100% 50% / 0.4)',
+                                  '0 0 25px hsl(45 100% 50% / 0.6)',
+                                  '0 0 15px hsl(45 100% 50% / 0.4)',
                                 ]
                               }}
                               transition={{ duration: 2, repeat: Infinity }}
@@ -290,23 +283,26 @@ export const Categories = () => {
                     );
                   })}
                 </AnimatePresence>
-              </div>
+              </motion.div>
 
               {/* Indicators */}
-              <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              <div className="flex gap-2 mt-4 md:mt-6">
                 {categories.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all ${
                       index === currentIndex 
-                        ? 'bg-neon-orange w-8 glow-orange' 
+                        ? 'bg-neon-orange w-6 glow-orange' 
                         : 'bg-muted-foreground/30'
                     }`}
                     aria-label={`Ir para categoria ${index + 1}`}
                   />
                 ))}
               </div>
+
+              {/* Instruction text */}
+              <p className="text-neon-orange text-sm mt-4">Toque para selecionar</p>
             </motion.div>
           )}
         </AnimatePresence>
