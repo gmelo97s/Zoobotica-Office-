@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Instagram, MessageCircle, MapPin, Clock, ChevronDown } from 'lucide-react';
-import supraLogoClean from '@/assets/supra-logo-clean.png';
+import supraLogoNew from '@/assets/supra-logo-new.png';
 import supraLogoIcon from '@/assets/supra-logo-icon.png';
 import leaoSupra from '@/assets/leao-supra.jpg';
 import mosaico01 from '@/assets/mosaico-01.jpg';
@@ -40,8 +40,8 @@ const socialLinks = [
 const schedule = [
   { day: 'Quarta-feira', hours: '17h - 01h' },
   { day: 'Quinta-feira', hours: '17h - 01h' },
-  { day: 'Sexta-feira', hours: '17h - 04h', highlight: true },
-  { day: 'Sábado', hours: '17h - 04h', highlight: true },
+  { day: 'Sexta-feira', hours: '17h - 04h' },
+  { day: 'Sábado', hours: '17h - 04h' },
   { day: 'Domingo', hours: '17h - 01h' }
 ];
 
@@ -64,7 +64,7 @@ export const Landing = () => {
   return (
     <div className="min-h-screen">
       {/* First Fold - Hero */}
-      <section className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden">
+      <section className="min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 relative overflow-hidden">
         {/* Background with lion image */}
         <div className="absolute inset-0 -z-10">
           <img src={leaoSupra} alt="Supra Lion" className="w-full h-full object-cover blur-sm opacity-40" />
@@ -95,8 +95,9 @@ export const Landing = () => {
           ))}
         </div>
         
-        <div className="max-w-md w-full space-y-8 text-center relative z-10">
-          {/* Clean Logo */}
+        {/* Main content */}
+        <div className="flex-1 flex flex-col items-center justify-center max-w-md w-full space-y-8 text-center relative z-10">
+          {/* Logo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -104,14 +105,14 @@ export const Landing = () => {
             className="relative"
           >
             <motion.img
-              src={supraLogoClean}
+              src={supraLogoNew}
               alt="Supra Bar Logo"
-              className="w-48 md:w-56 mx-auto"
+              className="w-56 md:w-64 mx-auto"
               animate={{
                 filter: [
-                  'drop-shadow(0 0 20px hsl(var(--neon-orange) / 0.4))',
-                  'drop-shadow(0 0 35px hsl(var(--neon-orange) / 0.6))',
-                  'drop-shadow(0 0 20px hsl(var(--neon-orange) / 0.4))'
+                  'drop-shadow(0 0 15px hsl(45 100% 50% / 0.3))',
+                  'drop-shadow(0 0 25px hsl(45 100% 50% / 0.5))',
+                  'drop-shadow(0 0 15px hsl(45 100% 50% / 0.3))'
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -234,29 +235,29 @@ export const Landing = () => {
               <img src={supraLogoIcon} alt="Supra Bar" className="w-9 h-9 object-contain" />
             </motion.a>
           </motion.div>
-
-          {/* Scroll CTA */}
-          <motion.button
-            onClick={scrollToMosaic}
-            className="flex flex-col items-center gap-2 mx-auto mt-8 text-muted-foreground hover:text-neon-orange transition-colors"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-          >
-            <span className="text-sm font-medium">Nosso Ambiente</span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <ChevronDown size={24} />
-            </motion.div>
-          </motion.button>
         </div>
+
+        {/* Scroll CTA - positioned at bottom */}
+        <motion.button
+          onClick={scrollToMosaic}
+          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-neon-orange transition-colors pb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+        >
+          <span className="text-sm font-medium">Nosso Ambiente</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ChevronDown size={24} />
+          </motion.div>
+        </motion.button>
       </section>
 
       {/* Second Fold - Mosaic */}
-      <section id="ambiente" className="min-h-screen py-12 px-4 sm:px-6 bg-gradient-to-b from-background to-background/95">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <section id="ambiente" className="py-12 px-4 sm:px-6 bg-gradient-to-b from-background to-background/95">
+        <div className="max-w-4xl mx-auto space-y-6">
           <motion.div
             className="text-center space-y-2"
             initial={{ opacity: 0, y: 20 }}
@@ -280,7 +281,7 @@ export const Landing = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="pt-8"
+            className="pt-4"
           >
             <Button
               onClick={() => navigate('/cardapio')}
@@ -320,11 +321,11 @@ export const Landing = () => {
                   key={item.day}
                   className="flex justify-between items-center text-sm"
                 >
-                  <span className={item.highlight ? 'font-semibold text-foreground' : 'text-muted-foreground'}>
+                  <span className="text-muted-foreground">
                     {item.day}:
                   </span>
-                  <span className={item.highlight ? 'font-bold text-neon-orange' : 'text-muted-foreground'}>
-                    {item.hours} {item.highlight && '🔥'}
+                  <span className="text-muted-foreground">
+                    {item.hours}
                   </span>
                 </div>
               ))}
@@ -358,7 +359,7 @@ export const Landing = () => {
 
           {/* Copyright */}
           <div className="text-center text-sm text-muted-foreground pt-4 border-t border-border">
-            <p>© 2025 Supra Bar Vila Madalena. Muito mais que um bar 🔥</p>
+            <p>© 2025 Supra Bar Vila Madalena. Muito mais que um bar.</p>
           </div>
         </div>
       </section>

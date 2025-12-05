@@ -192,7 +192,7 @@ export const products: Product[] = [
     id: 'fireball',
     name: 'Fireball',
     price: 14.00,
-    description: 'Whisky de canela picante 🔥',
+    description: 'Whisky de canela picante',
     category: 'Shots',
     tags: ['fireball', 'canela', 'whisky', 'picante'],
     size: '50ml'
