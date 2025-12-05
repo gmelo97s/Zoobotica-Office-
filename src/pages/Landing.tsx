@@ -152,7 +152,7 @@ export const Landing = () => {
               ease: 'easeInOut'
             }
           }}>
-              MUITO MAIS QUE UM BAR
+              MUITO MAIS QUE UM BAR!
             </motion.h1>
             <div className="flex items-center justify-center gap-2 text-2xl">
               <span className="text-neon-orange font-bold text-base">Vila Madalena</span>
