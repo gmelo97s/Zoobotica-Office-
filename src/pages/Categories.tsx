@@ -5,7 +5,6 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { categories, products } from '@/data/menu';
 import { SearchBar } from '@/components/SearchBar';
 import { SearchResults } from '@/components/SearchResults';
-import { Footer } from '@/components/Footer';
 import { useSearch } from '@/hooks/useSearch';
 import { useDebounce } from '@/hooks/useDebounce';
 import { Product } from '@/data/menu';
@@ -128,7 +127,7 @@ export const Categories = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="relative h-[calc(100vh-180px)] flex items-center justify-center overflow-hidden"
+              className="relative h-[calc(100vh-180px)] md:h-[calc(100vh-180px)] flex items-center justify-center overflow-hidden"
             >
               {/* Navigation Arrows */}
               <button
@@ -162,12 +161,12 @@ export const Categories = () => {
                         className="absolute"
                         initial={false}
                         animate={{
-                          x: position === 'center' ? 0 : position === 'right' ? '60%' : '-60%',
-                          scale: position === 'center' ? 1 : 0.7,
+                          x: position === 'center' ? 0 : position === 'right' ? '55%' : '-55%',
+                          scale: position === 'center' ? 1 : 0.65,
                           z: position === 'center' ? 50 : 0,
-                          opacity: position === 'center' ? 1 : 0.4,
-                          rotateY: position === 'center' ? 0 : position === 'right' ? -25 : 25,
-                          filter: position === 'center' ? 'blur(0px)' : 'blur(4px)',
+                          opacity: position === 'center' ? 1 : 0.35,
+                          rotateY: position === 'center' ? 0 : position === 'right' ? -20 : 20,
+                          filter: position === 'center' ? 'blur(0px)' : 'blur(3px)',
                         }}
                         transition={{
                           duration: 0.5,
@@ -179,19 +178,19 @@ export const Categories = () => {
                       >
                         <motion.button
                           onClick={() => position === 'center' && navigate(`/cardapio/${category.id}`)}
-                          className="relative w-[85vw] h-[65vh] max-w-md overflow-hidden glass cursor-pointer"
+                          className="relative w-[70vw] h-[55vh] md:w-[75vw] md:h-[60vh] max-w-sm md:max-w-md overflow-hidden glass cursor-pointer"
                           style={{
-                            borderRadius: '2rem',
-                            border: '6px solid hsl(var(--border) / 0.4)',
+                            borderRadius: '1.5rem',
+                            border: '4px solid hsl(var(--neon-orange) / 0.5)',
                             boxShadow: position === 'center' 
-                              ? '0 20px 60px -10px hsl(var(--neon-orange) / 0.4)'
+                              ? '0 15px 50px -10px hsl(var(--neon-orange) / 0.5), inset 0 0 0 1px hsl(var(--neon-orange) / 0.2)'
                               : '0 10px 30px -10px rgba(0,0,0,0.3)'
                           }}
                           whileHover={position === 'center' ? { scale: 1.02 } : {}}
                           whileTap={position === 'center' ? { scale: 0.98 } : {}}
                         >
                           {/* Background Image */}
-                          <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '1.75rem' }}>
+                          <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '1.25rem' }}>
                             {bgImage ? (
                               <img 
                                 src={bgImage} 
@@ -234,9 +233,9 @@ export const Categories = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
                           {/* Content */}
-                          <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+                          <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6">
                             <motion.h2 
-                              className="text-3xl md:text-4xl font-black text-foreground mb-2 text-glow-orange uppercase"
+                              className="text-2xl md:text-3xl font-black text-foreground mb-1 text-glow-orange uppercase"
                               animate={position === 'center' ? {
                                 textShadow: [
                                   '0 0 20px hsl(var(--neon-orange) / 0.8)',
@@ -248,14 +247,14 @@ export const Categories = () => {
                             >
                               {category.name}
                             </motion.h2>
-                            <p className="text-base md:text-lg text-muted-foreground mb-4">
+                            <p className="text-sm md:text-base text-muted-foreground mb-3">
                               {category.itemCount} {category.itemCount === 1 ? 'item' : 'itens'}
                             </p>
                             {position === 'center' && (
                               <motion.div
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-neon-orange font-bold flex items-center gap-2 text-sm md:text-base"
+                                className="text-neon-orange font-bold flex items-center gap-2 text-xs md:text-sm"
                               >
                                 <span>TOQUE PARA VER</span>
                                 <motion.span
@@ -273,7 +272,7 @@ export const Categories = () => {
                             <motion.div
                               className="absolute inset-0 pointer-events-none"
                               style={{
-                                borderRadius: '2rem',
+                                borderRadius: '1.5rem',
                                 border: '3px solid hsl(var(--neon-orange) / 0.6)',
                               }}
                               animate={{
@@ -312,8 +311,6 @@ export const Categories = () => {
           )}
         </AnimatePresence>
       </div>
-      
-      {!showResults && <Footer />}
     </div>
   );
 };
