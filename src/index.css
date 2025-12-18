@@ -9,52 +9,52 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Core Background Colors */
-    --background: 0 0% 4%;
+    --background: 28 20% 4%;
     --foreground: 0 0% 100%;
 
-    /* Neon Accent Colors */
-    --neon-orange: 20 100% 50%;
-    --neon-magenta: 330 100% 50%;
+    /* Neon Accent Colors - Zoobotica Palette */
+    --neon-orange: 28 100% 55%;
+    --neon-magenta: 82 84% 67%;
     --neon-purple: 270 100% 50%;
     --neon-blue: 195 100% 50%;
-    --neon-green: 160 100% 50%;
-    --neon-yellow: 48 100% 50%;
+    --neon-green: 140 80% 50%;
+    --neon-yellow: 45 100% 50%;
 
     /* UI Colors */
-    --card: 0 0% 8%;
+    --card: 28 15% 8%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 8%;
+    --popover: 28 15% 8%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 20 100% 50%;
+    --primary: 28 100% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 12%;
+    --secondary: 28 10% 12%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 72%;
+    --muted: 28 10% 12%;
+    --muted-foreground: 28 10% 72%;
 
-    --accent: 330 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 82 84% 67%;
+    --accent-foreground: 28 20% 10%;
 
     --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 20 100% 50%;
+    --border: 28 10% 15%;
+    --input: 28 10% 15%;
+    --ring: 28 100% 55%;
 
     --radius: 0.75rem;
 
     /* Glass Effect */
-    --glass-bg: 0 0% 8% / 0.8;
+    --glass-bg: 28 15% 8% / 0.8;
     --glass-border: 0 0% 100% / 0.1;
 
     /* Glow Effects */
-    --glow-orange: 0 0 20px hsl(20 100% 50% / 0.6);
-    --glow-magenta: 0 0 20px hsl(330 100% 50% / 0.6);
+    --glow-orange: 0 0 20px hsl(28 100% 55% / 0.6);
+    --glow-magenta: 0 0 20px hsl(82 84% 67% / 0.6);
     --glow-purple: 0 0 20px hsl(270 100% 50% / 0.6);
     --glow-blue: 0 0 20px hsl(195 100% 50% / 0.6);
   }

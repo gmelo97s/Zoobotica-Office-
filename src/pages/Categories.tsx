@@ -9,18 +9,6 @@ import { useSearch } from '@/hooks/useSearch';
 import { useDebounce } from '@/hooks/useDebounce';
 import { Product } from '@/data/menu';
 
-// Import high-res category images
-import xequePreto from '@/assets/xeque-preto.png';
-import licorPreto from '@/assets/licor-preto.png';
-import rumPreto from '@/assets/rum-preto.png';
-import vodkaPreto from '@/assets/vodka-preto.png';
-import ginBeefeater from '@/assets/gin-beefeater.png';
-import cervejaPreto from '@/assets/cerveja-preto.png';
-import whiskysGenerica from '@/assets/whiskys-generica.jpg';
-import drinks from '@/assets/drinks.jpg';
-import porcoesHq from '@/assets/porcoes-hq.jpg';
-import combos from '@/assets/combos.jpg';
-
 export const Categories = () => {
   const navigate = useNavigate();
   const { query, setQuery, results } = useSearch(products);
@@ -40,9 +28,7 @@ export const Categories = () => {
   
   const handleProductClick = (product: Product) => {
     const categoryId = categories.find(c => 
-      product.subcategory 
-        ? c.name === product.subcategory 
-        : c.name === product.category
+      c.name === product.category
     )?.id;
     
     if (categoryId) {
@@ -63,7 +49,7 @@ export const Categories = () => {
     setCurrentIndex((prev) => (prev - 1 + categories.length) % categories.length);
   };
 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const threshold = 50;
     if (info.offset.x < -threshold) {
       handleNext();
@@ -82,20 +68,6 @@ export const Categories = () => {
     if (normalizedDiff === total - 1) return 'left';
     return 'hidden';
   };
-
-  // Map category images to high-res versions
-  const imageMap: Record<string, string> = {
-    'abriu-bebeu': xequePreto,
-    'shots': licorPreto,
-    'runs-cachacas': rumPreto,
-    'vodkas': vodkaPreto,
-    'gins': ginBeefeater,
-    'cervejas': cervejaPreto,
-    'whiskys': whiskysGenerica,
-    'drinks': drinks,
-    'porcoes': porcoesHq,
-    'combos': combos
-  };
   
   return (
     <div className="min-h-screen pb-20">
@@ -110,7 +82,7 @@ export const Categories = () => {
               <ArrowLeft className="text-foreground" size={24} />
             </button>
             <h1 className="text-2xl font-bold text-foreground text-glow-orange">
-              Cardápio Digital
+              Catálogo Zoobotica
             </h1>
           </div>
           
@@ -186,8 +158,6 @@ export const Categories = () => {
                     const position = getCardPosition(index);
                     if (position === 'hidden') return null;
 
-                    const bgImage = imageMap[category.id];
-
                     return (
                       <motion.div
                         key={category.id}
@@ -214,48 +184,38 @@ export const Categories = () => {
                           className="relative w-[55vw] h-[45vh] max-w-[240px] max-h-[320px] md:w-[50vw] md:h-[50vh] md:max-w-[300px] md:max-h-[400px] overflow-hidden cursor-pointer"
                           style={{
                             borderRadius: '1rem',
-                            border: position === 'center' ? '3px solid hsl(45 100% 50%)' : '2px solid hsl(45 100% 50% / 0.3)',
+                            border: position === 'center' ? '3px solid hsl(28 100% 55%)' : '2px solid hsl(28 100% 55% / 0.3)',
                             boxShadow: position === 'center' 
-                              ? '0 10px 40px -10px hsl(45 100% 50% / 0.5)'
+                              ? '0 10px 40px -10px hsl(28 100% 55% / 0.5)'
                               : '0 5px 20px -10px rgba(0,0,0,0.3)',
                             background: '#0a0a0a'
                           }}
                           whileHover={position === 'center' ? { scale: 1.02 } : {}}
                           whileTap={position === 'center' ? { scale: 0.98 } : {}}
                         >
-                          {/* Background Image */}
+                          {/* Background Gradient */}
                           <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '0.875rem' }}>
-                            {bgImage ? (
-                              <img 
-                                src={bgImage} 
-                                alt={category.name} 
-                                className="w-full h-full object-cover object-center"
-                                style={{
-                                  filter: 'brightness(0.85) contrast(1.1)',
-                                }}
-                              />
-                            ) : (
-                              <div 
-                                className="w-full h-full"
-                                style={{ background: category.gradient || 'linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-magenta)) 100%)' }}
-                              />
-                            )}
+                            <div 
+                              className="w-full h-full"
+                              style={{ background: category.gradient || 'linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-magenta)) 100%)' }}
+                            />
                           </div>
 
                           {/* Gradient Overlay */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
                           {/* Content */}
-                          <div className="absolute inset-0 flex flex-col justify-end p-4">
+                          <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                            <span className="text-5xl md:text-6xl mb-4">{category.icon}</span>
                             <h2 
-                              className="text-lg md:text-xl font-bold text-white mb-1 uppercase"
+                              className="text-lg md:text-xl font-bold text-white mb-1 uppercase text-center"
                               style={{
-                                textShadow: position === 'center' ? '0 0 15px hsl(45 100% 50% / 0.8)' : 'none'
+                                textShadow: position === 'center' ? '0 0 15px hsl(28 100% 55% / 0.8)' : 'none'
                               }}
                             >
                               {category.name}
                             </h2>
-                            <p className="text-xs text-gray-400">
+                            <p className="text-xs text-gray-300">
                               {category.itemCount} {category.itemCount === 1 ? 'item' : 'itens'}
                             </p>
                           </div>
@@ -266,13 +226,13 @@ export const Categories = () => {
                               className="absolute inset-0 pointer-events-none"
                               style={{
                                 borderRadius: '1rem',
-                                border: '2px solid hsl(45 100% 50% / 0.6)',
+                                border: '2px solid hsl(28 100% 55% / 0.6)',
                               }}
                               animate={{
                                 boxShadow: [
-                                  '0 0 15px hsl(45 100% 50% / 0.4)',
-                                  '0 0 25px hsl(45 100% 50% / 0.6)',
-                                  '0 0 15px hsl(45 100% 50% / 0.4)',
+                                  '0 0 15px hsl(28 100% 55% / 0.4)',
+                                  '0 0 25px hsl(28 100% 55% / 0.6)',
+                                  '0 0 15px hsl(28 100% 55% / 0.4)',
                                 ]
                               }}
                               transition={{ duration: 2, repeat: Infinity }}

@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Product } from '@/data/menu';
 import { formatPrice } from '@/utils/textUtils';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Plus } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import { Button } from '@/components/ui/button';
 
 interface ProductCardProps {
   product: Product;
@@ -9,7 +11,14 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product, delay = 0 }: ProductCardProps) => {
+  const { addItem } = useCart();
   const showBadges = product.featured || product.popular || product.special || product.promo;
+  
+  const handleAddToCart = () => {
+    if (product.price) {
+      addItem(product);
+    }
+  };
   
   return (
     <motion.div
@@ -91,22 +100,33 @@ export const ProductCard = ({ product, delay = 0 }: ProductCardProps) => {
           )}
         </div>
         
-        <div className="flex-shrink-0 text-right">
+        <div className="flex-shrink-0 text-right flex flex-col items-end gap-2">
           <p className="text-2xl font-bold text-neon-orange text-glow-orange">
             {formatPrice(product.price)}
           </p>
           {product.size && (
-            <p className="text-xs text-muted-foreground mt-1">{product.size}</p>
+            <p className="text-xs text-muted-foreground">{product.size}</p>
           )}
           {product.maxGuests && (
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="text-xs text-muted-foreground">
               até {product.maxGuests} pessoas
             </p>
           )}
           {product.minGuests && (
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="text-xs text-muted-foreground">
               {product.minGuests}+ pessoas
             </p>
+          )}
+          
+          {product.price && (
+            <Button
+              onClick={handleAddToCart}
+              size="sm"
+              className="mt-2 bg-neon-orange hover:bg-neon-orange/80 text-white"
+            >
+              <Plus size={16} className="mr-1" />
+              Adicionar
+            </Button>
           )}
         </div>
       </div>

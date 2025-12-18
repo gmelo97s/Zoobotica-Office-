@@ -31,733 +31,648 @@ export interface Category {
 
 export const categories: Category[] = [
   {
-    id: 'abriu-bebeu',
-    name: 'Abriu Bebeu',
-    icon: '🍺',
-    image: 'xeque-mate',
+    id: 'servicos-clinica',
+    name: 'Serviços de Clínica',
+    icon: '🏥',
+    gradient: 'linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%)',
+    itemCount: 6
+  },
+  {
+    id: 'eventos-especiais',
+    name: 'Eventos e Especiais',
+    icon: '🎉',
+    gradient: 'linear-gradient(135deg, #A855F7 0%, #EC4899 100%)',
     itemCount: 4
   },
   {
-    id: 'shots',
-    name: 'Shots',
-    icon: '🥃',
-    image: 'licor-43',
+    id: 'boutique-acessorios',
+    name: 'Boutique e Acessórios',
+    icon: '👕',
+    gradient: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)',
     itemCount: 8
   },
   {
-    id: 'whiskys',
-    name: 'Whiskys & Destilados',
-    icon: '🥃',
-    image: 'whiskys-generica',
-    itemCount: 9
-  },
-  {
-    id: 'runs-cachacas',
-    name: 'Runs & Cachaças',
-    icon: '🥃',
-    image: 'rum-cachaca',
-    itemCount: 4
-  },
-  {
-    id: 'vodkas',
-    name: 'Vodkas',
-    icon: '🍸',
-    image: 'vodkas-generica',
-    itemCount: 4
-  },
-  {
-    id: 'gins',
-    name: 'Gins',
-    icon: '🍸',
-    image: 'gin-hq',
-    itemCount: 3
-  },
-  {
-    id: 'cervejas',
-    name: 'Cervejas',
-    icon: '🍺',
-    image: 'corona',
-    itemCount: 9
-  },
-  {
-    id: 'drinks',
-    name: 'Drinks & Coquetéis',
-    icon: '🍹',
-    image: 'drinks',
-    itemCount: 12
-  },
-  {
-    id: 'porcoes',
-    name: 'Porções & Petiscos',
-    icon: '🍔',
-    image: 'porcoes-hq',
+    id: 'farmacia-pet',
+    name: 'Farmácia Pet',
+    icon: '💊',
+    gradient: 'linear-gradient(135deg, #10B981 0%, #34D399 100%)',
     itemCount: 10
   },
   {
-    id: 'combos',
-    name: 'Combos & Promoções',
-    icon: '🎉',
-    image: 'combos',
+    id: 'nutricao-gatos',
+    name: 'Nutrição para Gatos',
+    icon: '🐱',
+    gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%)',
+    itemCount: 12
+  },
+  {
+    id: 'nutricao-caes',
+    name: 'Nutrição para Cães',
+    icon: '🐕',
+    gradient: 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)',
+    itemCount: 15
+  },
+  {
+    id: 'daycare-hotel',
+    name: 'Day Care e Hotel',
+    icon: '🏨',
+    gradient: 'linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%)',
     itemCount: 5
+  },
+  {
+    id: 'estetica-spa',
+    name: 'Estética e SPA',
+    icon: '✨',
+    gradient: 'linear-gradient(135deg, #EC4899 0%, #F472B6 100%)',
+    itemCount: 8
   }
 ];
 
 export const products: Product[] = [
-  // ABRIU BEBEU
+  // SERVIÇOS DE CLÍNICA
   {
-    id: 'xeque-mate',
-    name: 'Xeque-Mate Lata',
-    price: 14.00,
-    description: 'Ice com vodka refrescante',
-    category: 'Abriu Bebeu',
-    tags: ['ice', 'vodka', 'lata', 'gelado', 'xeque', 'mate'],
-    size: 'Lata'
-  },
-  {
-    id: 'smirnoff-ice',
-    name: 'Smirnoff Ice Long Neck',
-    price: 13.00,
-    description: 'Ice clássico Smirnoff',
-    category: 'Abriu Bebeu',
-    tags: ['smirnoff', 'ice', 'long neck'],
-    size: 'Long Neck'
-  },
-  {
-    id: 'beats-gt',
-    name: 'Beats / GT Long Neck',
-    price: 13.00,
-    description: 'Ice sabores variados',
-    category: 'Abriu Bebeu',
-    tags: ['beats', 'gt', 'ice', 'long neck'],
-    size: 'Long Neck'
-  },
-  {
-    id: 'mikes-sabores',
-    name: 'Mike\'s Sabores Long Neck',
-    price: 13.00,
-    description: 'Ice com sabores especiais',
-    category: 'Abriu Bebeu',
-    tags: ['mikes', 'sabores', 'ice', 'long neck'],
-    size: 'Long Neck'
-  },
-
-  // SHOTS
-  {
-    id: 'licor-43',
-    name: 'Licor 43',
-    price: 19.00,
-    description: 'Licor espanhol premium com 43 ingredientes',
-    category: 'Shots',
-    tags: ['licor', 'espanha', 'premium', 'doce', '43'],
-    size: '50ml',
-    featured: true
-  },
-  {
-    id: 'ballena',
-    name: 'Ballena',
-    price: 19.00,
-    description: 'Cachaça premium com toque especial',
-    category: 'Shots',
-    tags: ['cachaca', 'premium', 'ballena'],
-    size: '50ml'
-  },
-  {
-    id: 'jack-honey-shot',
-    name: 'Jack Daniels Honey',
-    price: 16.00,
-    description: 'Whisky com mel suave',
-    category: 'Shots',
-    tags: ['jack daniels', 'honey', 'mel', 'whisky', 'jack'],
-    size: '50ml'
-  },
-  {
-    id: 'tequila-shot',
-    name: 'Tequila',
-    price: 16.00,
-    description: 'Tequila com limão e sal',
-    category: 'Shots',
-    tags: ['tequila', 'limao', 'sal', 'mexico'],
-    size: '50ml'
-  },
-  {
-    id: 'jagermeister',
-    name: 'Jägermeister',
-    price: 14.00,
-    description: 'Licor alemão de ervas',
-    category: 'Shots',
-    tags: ['jager', 'jagermeister', 'alemao', 'ervas'],
-    size: '25ml'
-  },
-  {
-    id: 'fireball',
-    name: 'Fireball',
-    price: 14.00,
-    description: 'Whisky de canela picante',
-    category: 'Shots',
-    tags: ['fireball', 'canela', 'whisky', 'picante'],
-    size: '50ml'
-  },
-  {
-    id: 'santo-mel',
-    name: 'Santo Mel',
-    price: 10.00,
-    description: 'Shot de cachaça com mel - clássico da casa',
-    category: 'Shots',
-    tags: ['cachaca', 'mel', 'nacional', 'classico', 'santo'],
-    size: '50ml',
-    popular: true
-  },
-  {
-    id: 'seleta',
-    name: 'Seleta',
-    price: 10.00,
-    description: 'Shot nacional tradicional',
-    category: 'Shots',
-    tags: ['seleta', 'nacional'],
-    size: '50ml'
-  },
-
-  // WHISKYS NACIONAIS
-  {
-    id: 'old-eight',
-    name: 'Old Eight',
-    price: 180.00,
-    description: 'Whisky nacional suave e encorpado',
-    category: 'Whiskys Nacionais',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['whisky', 'nacional', 'old eight', 'old', 'eight']
-  },
-  {
-    id: 'white-horse',
-    name: 'White Horse',
-    price: 240.00,
-    description: 'Blend escocês clássico',
-    category: 'Whiskys Nacionais',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['whisky', 'escoces', 'blend', 'white', 'horse']
-  },
-
-  // WHISKYS IMPORTADOS
-  {
-    id: 'jack-daniels',
-    name: 'Jack Daniel\'s',
-    price: 380.00,
-    description: 'Tennessee whiskey icônico',
-    category: 'Whiskys Importados',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['jack daniels', 'tennessee', 'whiskey', 'americano', 'jack'],
-    popular: true
-  },
-  {
-    id: 'jack-daniels-honey',
-    name: 'Jack Daniel\'s Honey',
-    price: 420.00,
-    description: 'Jack Daniel\'s com toque de mel',
-    category: 'Whiskys Importados',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['jack daniels', 'honey', 'mel', 'whiskey', 'jack']
-  },
-  {
-    id: 'johnnie-red',
-    name: 'Johnnie Walker Red Label',
-    price: 340.00,
-    description: 'Blend escocês vibrante',
-    category: 'Whiskys Importados',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['johnnie walker', 'red label', 'escoces', 'johnnie', 'walker', 'red']
-  },
-  {
-    id: 'johnnie-black',
-    name: 'Johnnie Walker Black Label',
-    price: 480.00,
-    description: '12 anos de maturação',
-    category: 'Whiskys Importados',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['johnnie walker', 'black label', 'escoces', 'premium', 'johnnie', 'walker', 'black']
-  },
-  {
-    id: 'ballantines',
-    name: 'Ballantine\'s',
-    price: 340.00,
-    description: 'Blend escocês equilibrado',
-    category: 'Whiskys Importados',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['ballantines', 'escoces', 'blend']
-  },
-  {
-    id: 'passport',
-    name: 'Passport',
-    price: 280.00,
-    description: 'Blend escocês suave',
-    category: 'Whiskys Importados',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['passport', 'escoces']
-  },
-  {
-    id: 'jim-beam',
-    name: 'Jim Beam',
-    price: 380.00,
-    description: 'Bourbon americano tradicional',
-    category: 'Whiskys Importados',
-    subcategory: 'Whiskys & Destilados',
-    tags: ['jim beam', 'bourbon', 'americano', 'jim', 'beam']
-  },
-
-  // RUNS & CACHAÇAS
-  {
-    id: 'montilla',
-    name: 'Montilla',
-    price: 260.00,
-    description: 'Rum caribenho suave',
-    category: 'Runs & Cachaças',
-    tags: ['rum', 'montilla', 'caribenho']
-  },
-  {
-    id: 'bacardi',
-    name: 'Bacardi',
-    price: 280.00,
-    description: 'Rum branco clássico',
-    category: 'Runs & Cachaças',
-    tags: ['bacardi', 'rum', 'branco', 'cuba'],
-    popular: true
-  },
-  {
-    id: 'velho-barreiro',
-    name: 'Velho Barreiro',
+    id: 'consulta-clinica',
+    name: 'Consulta Clínica',
     price: 150.00,
-    description: 'Cachaça nacional tradicional',
-    category: 'Runs & Cachaças',
-    tags: ['cachaca', 'velho barreiro', 'nacional', 'velho', 'barreiro']
-  },
-  {
-    id: 'cachaca-51',
-    name: '51',
-    price: 150.00,
-    description: 'Cachaça brasileira clássica',
-    category: 'Runs & Cachaças',
-    tags: ['51', 'cachaca', 'brasileira']
-  },
-
-  // VODKAS
-  {
-    id: 'smirnoff',
-    name: 'Smirnoff',
-    price: 240.00,
-    description: 'Vodka clássica premium',
-    category: 'Vodkas',
-    tags: ['smirnoff', 'vodka', 'classica'],
+    description: 'Atendimento veterinário completo com avaliação geral',
+    category: 'Serviços de Clínica',
+    tags: ['consulta', 'veterinário', 'saúde', 'clínica'],
     popular: true
   },
   {
-    id: 'absolut',
-    name: 'Absolut',
-    price: 280.00,
-    description: 'Vodka sueca premium',
-    category: 'Vodkas',
-    tags: ['absolut', 'vodka', 'sueca', 'premium']
+    id: 'vacinacao',
+    name: 'Vacinação',
+    price: 80.00,
+    description: 'Aplicação de vacinas com orientação veterinária',
+    category: 'Serviços de Clínica',
+    tags: ['vacina', 'imunização', 'prevenção'],
   },
   {
-    id: 'orloff',
-    name: 'Orloff',
+    id: 'vermifugacao',
+    name: 'Vermifugação',
+    price: 45.00,
+    description: 'Tratamento e prevenção contra vermes',
+    category: 'Serviços de Clínica',
+    tags: ['vermífugo', 'parasitas', 'prevenção'],
+  },
+  {
+    id: 'exames-laboratoriais',
+    name: 'Exames Laboratoriais',
+    price: 120.00,
+    description: 'Exames de sangue, urina e outros',
+    category: 'Serviços de Clínica',
+    tags: ['exame', 'sangue', 'laboratório', 'diagnóstico'],
+  },
+  {
+    id: 'ultrassonografia',
+    name: 'Ultrassonografia',
     price: 200.00,
-    description: 'Vodka nacional',
-    category: 'Vodkas',
-    tags: ['orloff', 'vodka', 'nacional']
+    description: 'Exame de imagem por ultrassom',
+    category: 'Serviços de Clínica',
+    tags: ['ultrassom', 'imagem', 'diagnóstico'],
+    featured: true
   },
   {
-    id: 'skyy',
-    name: 'Skyy',
-    price: 240.00,
-    description: 'Vodka americana suave',
-    category: 'Vodkas',
-    tags: ['skyy', 'vodka', 'americana']
+    id: 'microchip',
+    name: 'Implante de Microchip',
+    price: 90.00,
+    description: 'Identificação permanente do seu pet',
+    category: 'Serviços de Clínica',
+    tags: ['microchip', 'identificação', 'segurança'],
   },
 
-  // GINS
+  // EVENTOS E ESPECIAIS
   {
-    id: 'tanqueray',
-    name: 'Tanqueray',
-    price: 320.00,
-    description: 'Gin inglês premium',
-    category: 'Gins',
-    tags: ['tanqueray', 'gin', 'ingles', 'premium'],
-    popular: true
+    id: 'festa-aniversario',
+    name: 'Festa de Aniversário Pet',
+    price: 350.00,
+    description: 'Pacote completo com decoração e bolo pet-friendly',
+    category: 'Eventos e Especiais',
+    tags: ['festa', 'aniversário', 'celebração'],
+    featured: true,
+    special: true
   },
   {
-    id: 'beefeater',
-    name: 'Beefeater',
+    id: 'ensaio-fotografico',
+    name: 'Ensaio Fotográfico',
+    price: 180.00,
+    description: 'Sessão de fotos profissional para seu pet',
+    category: 'Eventos e Especiais',
+    tags: ['foto', 'ensaio', 'profissional'],
+    special: true
+  },
+  {
+    id: 'pacote-casamento-pet',
+    name: 'Pacote Casamento Pet',
+    price: 500.00,
+    description: 'Seu pet como padrinho/madrinha no grande dia',
+    category: 'Eventos e Especiais',
+    tags: ['casamento', 'evento', 'especial'],
+    special: true
+  },
+  {
+    id: 'cha-revelacao-pet',
+    name: 'Chá Revelação Pet',
     price: 280.00,
-    description: 'London Dry Gin clássico',
-    category: 'Gins',
-    tags: ['beefeater', 'gin', 'london dry', 'ingles']
-  },
-  {
-    id: 'seagers',
-    name: 'Seagers',
-    price: 220.00,
-    description: 'Gin nacional acessível',
-    category: 'Gins',
-    tags: ['seagers', 'gin', 'nacional']
-  },
-
-  // CERVEJAS - Long Necks
-  {
-    id: 'budweiser-ln',
-    name: 'Budweiser Long Neck',
-    price: 12.00,
-    description: 'Cerveja americana clássica',
-    category: 'Cervejas - Long Necks',
-    subcategory: 'Cervejas',
-    tags: ['budweiser', 'cerveja', 'long neck', 'americana', 'bud']
-  },
-  {
-    id: 'heineken-ln',
-    name: 'Heineken Long Neck',
-    price: 15.00,
-    description: 'Cerveja holandesa premium',
-    category: 'Cervejas - Long Necks',
-    subcategory: 'Cervejas',
-    tags: ['heineken', 'cerveja', 'long neck', 'holandesa'],
-    popular: true
-  },
-  {
-    id: 'corona-ln',
-    name: 'Corona Long Neck',
-    price: 18.00,
-    description: 'Cerveja mexicana com limão',
-    category: 'Cervejas - Long Necks',
-    subcategory: 'Cervejas',
-    tags: ['corona', 'cerveja', 'long neck', 'mexicana', 'limao']
-  },
-  {
-    id: 'stella-ln',
-    name: 'Stella Artois Long Neck',
-    price: 18.00,
-    description: 'Cerveja belga premium',
-    category: 'Cervejas - Long Necks',
-    subcategory: 'Cervejas',
-    tags: ['stella artois', 'cerveja', 'long neck', 'belga', 'premium', 'stella']
-  },
-
-  // CERVEJAS - Latas
-  {
-    id: 'brahma-lata',
-    name: 'Brahma Lata',
-    price: 8.00,
-    description: 'Cerveja brasileira tradicional',
-    category: 'Cervejas - Latas',
-    subcategory: 'Cervejas',
-    tags: ['brahma', 'cerveja', 'lata', 'brasileira']
-  },
-  {
-    id: 'skol-lata',
-    name: 'Skol Lata',
-    price: 8.00,
-    description: 'Cerveja brasileira refrescante',
-    category: 'Cervejas - Latas',
-    subcategory: 'Cervejas',
-    tags: ['skol', 'cerveja', 'lata', 'brasileira']
-  },
-  {
-    id: 'amstel-lata',
-    name: 'Amstel Lata',
-    price: 10.00,
-    description: 'Cerveja holandesa de qualidade',
-    category: 'Cervejas - Latas',
-    subcategory: 'Cervejas',
-    tags: ['amstel', 'cerveja', 'lata', 'holandesa']
-  },
-
-  // CERVEJAS - Especiais
-  {
-    id: 'balde-cervejas',
-    name: 'Balde de Cerveja (6 unidades)',
-    price: 60.00,
-    description: '6 cervejas long neck geladas no gelo',
-    category: 'Cervejas - Especiais',
-    subcategory: 'Cervejas',
-    tags: ['balde', 'cerveja', 'long neck', 'gelo', 'combo'],
-    featured: true
-  },
-
-  // DRINKS - Clássicos
-  {
-    id: 'caipirinha',
-    name: 'Caipirinha',
-    price: 22.00,
-    description: 'Limão, morango, kiwi ou frutas vermelhas',
-    category: 'Drinks - Clássicos',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['caipirinha', 'cachaca', 'limao', 'morango', 'kiwi', 'frutas'],
-    popular: true
-  },
-  {
-    id: 'caipiroska',
-    name: 'Caipiroska',
-    price: 25.00,
-    description: 'Vodka + frutas frescas',
-    category: 'Drinks - Clássicos',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['caipiroska', 'vodka', 'frutas']
-  },
-  {
-    id: 'mojito',
-    name: 'Mojito',
-    price: 28.00,
-    description: 'Rum, hortelã e limão refrescante',
-    category: 'Drinks - Clássicos',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['mojito', 'rum', 'hortela', 'limao', 'refrescante'],
-    popular: true
-  },
-  {
-    id: 'gin-tonica',
-    name: 'Gin Tônica',
-    price: 30.00,
-    description: 'Gin + tônica + especiarias',
-    category: 'Drinks - Clássicos',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['gin tonica', 'gin', 'tonica', 'especiarias']
-  },
-  {
-    id: 'cuba-libre',
-    name: 'Cuba Libre',
-    price: 24.00,
-    description: 'Rum + cola + limão',
-    category: 'Drinks - Clássicos',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['cuba libre', 'rum', 'cola', 'limao']
-  },
-  {
-    id: 'whisky-sour',
-    name: 'Whisky Sour',
-    price: 32.00,
-    description: 'Whisky + limão + açúcar',
-    category: 'Drinks - Clássicos',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['whisky sour', 'whisky', 'limao', 'azucar', 'sour']
-  },
-
-  // DRINKS - Autorais
-  {
-    id: 'supra-sunset',
-    name: 'Supra Sunset',
-    price: 35.00,
-    description: 'Vodka, maracujá, laranja com toque secreto 🌅',
-    category: 'Drinks - Autorais Supra',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['supra sunset', 'autoral', 'vodka', 'maracuja', 'laranja', 'especial', 'sunset'],
-    featured: true,
-    special: true
-  },
-  {
-    id: 'neon-explosion',
-    name: 'Neon Explosion',
-    price: 38.00,
-    description: 'Gin, frutas vermelhas e energético',
-    category: 'Drinks - Autorais Supra',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['neon explosion', 'autoral', 'gin', 'frutas vermelhas', 'energetico', 'neon', 'explosion'],
-    featured: true,
-    special: true
-  },
-  {
-    id: 'vila-madness',
-    name: 'Vila Madness',
-    price: 40.00,
-    description: 'Drink especial da casa com mix de destilados',
-    category: 'Drinks - Autorais Supra',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['vila madness', 'autoral', 'especial', 'mix', 'destilados', 'madness'],
-    featured: true,
+    description: 'Revelação do sexo do filhote com festa',
+    category: 'Eventos e Especiais',
+    tags: ['chá revelação', 'filhote', 'festa'],
     special: true
   },
 
-  // DRINKS - Sem Álcool
+  // BOUTIQUE E ACESSÓRIOS
   {
-    id: 'limonada-suica',
-    name: 'Limonada Suíça',
-    price: 15.00,
-    description: 'Limonada cremosa refrescante',
-    category: 'Drinks - Sem Álcool',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['limonada', 'suica', 'sem alcool', 'refrescante'],
-    nonAlcoholic: true
-  },
-  {
-    id: 'suco-natural',
-    name: 'Suco Natural',
-    price: 12.00,
-    description: 'Laranja, limão ou morango',
-    category: 'Drinks - Sem Álcool',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['suco', 'natural', 'laranja', 'limao', 'morango', 'sem alcool'],
-    nonAlcoholic: true
-  },
-  {
-    id: 'energetico',
-    name: 'Energético Red Bull/TNT',
-    price: 18.00,
-    description: 'Energético gelado',
-    category: 'Drinks - Sem Álcool',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['energetico', 'red bull', 'tnt', 'sem alcool'],
-    nonAlcoholic: true
-  },
-  {
-    id: 'refrigerante',
-    name: 'Refrigerante Lata',
-    price: 8.00,
-    description: 'Coca-Cola, Guaraná, Sprite',
-    category: 'Drinks - Sem Álcool',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['refrigerante', 'lata', 'coca', 'guarana', 'sprite', 'sem alcool'],
-    nonAlcoholic: true
-  },
-  {
-    id: 'agua',
-    name: 'Água',
-    price: 6.00,
-    description: 'Água mineral',
-    category: 'Drinks - Sem Álcool',
-    subcategory: 'Drinks & Coquetéis',
-    tags: ['agua', 'mineral', 'sem alcool'],
-    nonAlcoholic: true
-  },
-
-  // PORÇÕES & PETISCOS
-  {
-    id: 'batata-simples',
-    name: 'Batata Frita Simples',
-    price: 25.00,
-    description: 'Porção generosa de batata crocante',
-    category: 'Porções & Petiscos',
-    tags: ['batata', 'frita', 'porcao', 'petisco'],
+    id: 'roupa-inverno',
+    name: 'Roupas de Inverno',
+    price: 75.00,
+    description: 'Casacos e moletons para dias frios',
+    category: 'Boutique e Acessórios',
+    tags: ['roupa', 'inverno', 'casaco', 'moletom'],
     popular: true
   },
   {
-    id: 'batata-cheddar',
-    name: 'Batata Frita com Cheddar e Bacon',
-    price: 35.00,
-    description: 'Batata com cheddar derretido e bacon crocante',
-    category: 'Porções & Petiscos',
-    tags: ['batata', 'cheddar', 'bacon', 'porcao'],
-    featured: true
-  },
-  {
-    id: 'calabresa',
-    name: 'Calabresa Acebolada',
-    price: 32.00,
-    description: 'Calabresa fatiada com cebola caramelizada',
-    category: 'Porções & Petiscos',
-    tags: ['calabresa', 'acebolada', 'porcao']
-  },
-  {
-    id: 'frango-passarinho',
-    name: 'Frango à Passarinho',
-    price: 38.00,
-    description: 'Frango temperado e crocante',
-    category: 'Porções & Petiscos',
-    tags: ['frango', 'passarinho', 'porcao', 'crocante']
-  },
-  {
-    id: 'iscas-peixe',
-    name: 'Iscas de Peixe',
-    price: 42.00,
-    description: 'Iscas de peixe empanadas',
-    category: 'Porções & Petiscos',
-    tags: ['iscas', 'peixe', 'empanado', 'porcao']
-  },
-  {
-    id: 'pasteis',
-    name: 'Pastéis Variados (10 unidades)',
-    price: 35.00,
-    description: 'Mix de pastéis fritos na hora',
-    category: 'Porções & Petiscos',
-    tags: ['pastel', 'pasteis', 'variados', 'frito']
-  },
-  {
-    id: 'azeitona',
-    name: 'Porção de Azeitona',
-    price: 15.00,
-    description: 'Azeitonas verdes e pretas',
-    category: 'Porções & Petiscos',
-    tags: ['azeitona', 'porcao']
-  },
-  {
-    id: 'amendoim',
-    name: 'Amendoim',
-    price: 10.00,
-    description: 'Amendoim torrado salgado',
-    category: 'Porções & Petiscos',
-    tags: ['amendoim', 'torrado']
-  },
-  {
-    id: 'castanhas',
-    name: 'Mix de Castanhas',
-    price: 18.00,
-    description: 'Mix premium de castanhas',
-    category: 'Porções & Petiscos',
-    tags: ['castanhas', 'mix', 'premium']
-  },
-  {
-    id: 'tabua-frios',
-    name: 'Tábua de Frios',
+    id: 'coleira-personalizada',
+    name: 'Coleira Personalizada',
     price: 55.00,
-    description: 'Queijos, salame e presunto selecionados',
-    category: 'Porções & Petiscos',
-    tags: ['tabua', 'frios', 'queijo', 'salame', 'presunto'],
+    description: 'Coleiras com nome gravado',
+    category: 'Boutique e Acessórios',
+    tags: ['coleira', 'personalizada', 'acessório'],
+  },
+  {
+    id: 'cama-pet-premium',
+    name: 'Cama Pet Premium',
+    price: 180.00,
+    description: 'Camas confortáveis e duráveis',
+    category: 'Boutique e Acessórios',
+    tags: ['cama', 'conforto', 'descanso'],
     featured: true
+  },
+  {
+    id: 'brinquedo-interativo',
+    name: 'Brinquedos Interativos',
+    price: 45.00,
+    description: 'Brinquedos para estimulação mental',
+    category: 'Boutique e Acessórios',
+    tags: ['brinquedo', 'interativo', 'diversão'],
+  },
+  {
+    id: 'comedouro-bebedouro',
+    name: 'Comedouro e Bebedouro',
+    price: 65.00,
+    description: 'Conjuntos em inox ou cerâmica',
+    category: 'Boutique e Acessórios',
+    tags: ['comedouro', 'bebedouro', 'alimentação'],
+  },
+  {
+    id: 'transporte-bolsa',
+    name: 'Bolsa de Transporte',
+    price: 120.00,
+    description: 'Bolsas para transporte seguro',
+    category: 'Boutique e Acessórios',
+    tags: ['bolsa', 'transporte', 'passeio'],
+  },
+  {
+    id: 'guia-peitoral',
+    name: 'Guia com Peitoral',
+    price: 85.00,
+    description: 'Conjunto guia e peitoral ergonômico',
+    category: 'Boutique e Acessórios',
+    tags: ['guia', 'peitoral', 'passeio'],
+  },
+  {
+    id: 'fantasia-pet',
+    name: 'Fantasias',
+    price: 60.00,
+    description: 'Fantasias para datas especiais',
+    category: 'Boutique e Acessórios',
+    tags: ['fantasia', 'festa', 'especial'],
   },
 
-  // COMBOS & PROMOÇÕES
+  // FARMÁCIA PET
   {
-    id: 'combo-casal',
-    name: 'Combo Casal',
-    price: 280.00,
-    description: '1 Garrafa Vodka Smirnoff + 2 Energéticos + Gelo',
-    category: 'Combos & Promoções',
-    tags: ['combo', 'casal', 'vodka', 'smirnoff', 'energetico'],
-    items: ['1x Smirnoff', '2x Energético', 'Gelo']
+    id: 'antipulgas-carrapatos',
+    name: 'Antipulgas e Carrapatos',
+    price: 85.00,
+    description: 'Proteção contra parasitas externos',
+    category: 'Farmácia Pet',
+    tags: ['antipulgas', 'carrapatos', 'proteção'],
+    popular: true
   },
   {
-    id: 'combo-amigos',
-    name: 'Combo Amigos',
-    price: 550.00,
-    description: '2 Garrafas Vodka + 1 Balde Cerveja + 4 Energéticos',
-    category: 'Combos & Promoções',
-    tags: ['combo', 'amigos', 'vodka', 'balde', 'cerveja', 'energetico'],
-    items: ['2x Vodka', '1x Balde Cerveja (6un)', '4x Energético'],
-    featured: true
-  },
-  {
-    id: 'combo-balada',
-    name: 'Combo Balada',
-    price: 420.00,
-    description: '1 Whisky Red Label + 6 Energéticos + Porção Batata',
-    category: 'Combos & Promoções',
-    tags: ['combo', 'balada', 'whisky', 'red label', 'energetico', 'batata'],
-    items: ['1x Johnnie Red', '6x Energético', '1x Batata Frita'],
-    featured: true
-  },
-  {
-    id: 'happy-hour-cerveja',
-    name: 'Happy Hour - Dobradinha',
-    price: 20.00,
-    description: '2 Cervejas Long Neck (17h às 20h)',
-    category: 'Combos & Promoções',
-    tags: ['happy hour', 'cerveja', 'long neck', 'promocao'],
-    schedule: '17h às 20h',
-    promo: true
-  },
-  {
-    id: 'happy-hour-caipirinha',
-    name: 'Happy Hour - Caipirinha em Dobro',
+    id: 'vermifugo-oral',
+    name: 'Vermífugo Oral',
     price: 35.00,
-    description: '2 Caipirinhas (17h às 20h)',
-    category: 'Combos & Promoções',
-    tags: ['happy hour', 'caipirinha', 'dobro', 'promocao'],
-    schedule: '17h às 20h',
-    promo: true
+    description: 'Comprimidos palatáveis contra vermes',
+    category: 'Farmácia Pet',
+    tags: ['vermífugo', 'oral', 'comprimido'],
+  },
+  {
+    id: 'suplemento-vitaminas',
+    name: 'Suplementos Vitamínicos',
+    price: 55.00,
+    description: 'Vitaminas para saúde completa',
+    category: 'Farmácia Pet',
+    tags: ['suplemento', 'vitamina', 'saúde'],
+  },
+  {
+    id: 'shampoo-medicinal',
+    name: 'Shampoo Medicinal',
+    price: 48.00,
+    description: 'Shampoos para tratamento dermatológico',
+    category: 'Farmácia Pet',
+    tags: ['shampoo', 'medicinal', 'dermatológico'],
+  },
+  {
+    id: 'colírio-otologico',
+    name: 'Colírio e Otológico',
+    price: 42.00,
+    description: 'Produtos para olhos e ouvidos',
+    category: 'Farmácia Pet',
+    tags: ['colírio', 'otológico', 'tratamento'],
+  },
+  {
+    id: 'pomada-cicatrizante',
+    name: 'Pomada Cicatrizante',
+    price: 38.00,
+    description: 'Para feridas e lesões de pele',
+    category: 'Farmácia Pet',
+    tags: ['pomada', 'cicatrizante', 'ferida'],
+  },
+  {
+    id: 'probioticos',
+    name: 'Probióticos',
+    price: 65.00,
+    description: 'Para saúde intestinal',
+    category: 'Farmácia Pet',
+    tags: ['probiótico', 'intestinal', 'digestão'],
+  },
+  {
+    id: 'calmante-natural',
+    name: 'Calmante Natural',
+    price: 72.00,
+    description: 'Florais e calmantes naturais',
+    category: 'Farmácia Pet',
+    tags: ['calmante', 'natural', 'floral'],
+  },
+  {
+    id: 'protetor-solar-pet',
+    name: 'Protetor Solar Pet',
+    price: 45.00,
+    description: 'Proteção para pets de pelagem clara',
+    category: 'Farmácia Pet',
+    tags: ['protetor solar', 'pele', 'proteção'],
+  },
+  {
+    id: 'repelente-natural',
+    name: 'Repelente Natural',
+    price: 52.00,
+    description: 'Proteção natural contra insetos',
+    category: 'Farmácia Pet',
+    tags: ['repelente', 'natural', 'insetos'],
+  },
+
+  // NUTRIÇÃO PARA GATOS
+  {
+    id: 'racao-gato-filhote',
+    name: 'Ração Gato Filhote Premium',
+    price: 95.00,
+    description: 'Ração premium para gatos até 12 meses',
+    category: 'Nutrição para Gatos',
+    tags: ['ração', 'gato', 'filhote', 'premium'],
+    popular: true
+  },
+  {
+    id: 'racao-gato-adulto',
+    name: 'Ração Gato Adulto Premium',
+    price: 120.00,
+    description: 'Ração premium para gatos adultos',
+    category: 'Nutrição para Gatos',
+    tags: ['ração', 'gato', 'adulto', 'premium'],
+    popular: true
+  },
+  {
+    id: 'racao-gato-castrado',
+    name: 'Ração Gato Castrado',
+    price: 135.00,
+    description: 'Fórmula especial para castrados',
+    category: 'Nutrição para Gatos',
+    tags: ['ração', 'gato', 'castrado'],
+    featured: true
+  },
+  {
+    id: 'racao-gato-senior',
+    name: 'Ração Gato Sênior',
+    price: 140.00,
+    description: 'Para gatos acima de 7 anos',
+    category: 'Nutrição para Gatos',
+    tags: ['ração', 'gato', 'sênior', 'idoso'],
+  },
+  {
+    id: 'sache-gato',
+    name: 'Sachê para Gatos',
+    price: 8.00,
+    description: 'Alimentação úmida premium',
+    category: 'Nutrição para Gatos',
+    tags: ['sachê', 'gato', 'úmida'],
+  },
+  {
+    id: 'petisco-gato',
+    name: 'Petiscos para Gatos',
+    price: 18.00,
+    description: 'Snacks e treats saborosos',
+    category: 'Nutrição para Gatos',
+    tags: ['petisco', 'gato', 'snack'],
+  },
+  {
+    id: 'pasta-malte',
+    name: 'Pasta de Malte',
+    price: 28.00,
+    description: 'Auxilia na eliminação de bolas de pelo',
+    category: 'Nutrição para Gatos',
+    tags: ['malte', 'bola de pelo', 'gato'],
+  },
+  {
+    id: 'leite-gatos',
+    name: 'Leite para Gatos',
+    price: 22.00,
+    description: 'Leite sem lactose para felinos',
+    category: 'Nutrição para Gatos',
+    tags: ['leite', 'gato', 'sem lactose'],
+  },
+  {
+    id: 'erva-gato',
+    name: 'Erva do Gato',
+    price: 15.00,
+    description: 'Catnip orgânico para entretenimento',
+    category: 'Nutrição para Gatos',
+    tags: ['catnip', 'erva', 'gato'],
+  },
+  {
+    id: 'racao-gato-urinario',
+    name: 'Ração Trato Urinário',
+    price: 160.00,
+    description: 'Prevenção de problemas urinários',
+    category: 'Nutrição para Gatos',
+    tags: ['ração', 'urinário', 'gato', 'saúde'],
+  },
+  {
+    id: 'racao-gato-sensivel',
+    name: 'Ração Digestão Sensível',
+    price: 155.00,
+    description: 'Para gatos com estômago sensível',
+    category: 'Nutrição para Gatos',
+    tags: ['ração', 'sensível', 'digestão', 'gato'],
+  },
+  {
+    id: 'alimentacao-natural-gato',
+    name: 'Alimentação Natural Gatos',
+    price: 45.00,
+    description: 'Porções de AN congeladas',
+    category: 'Nutrição para Gatos',
+    tags: ['alimentação natural', 'AN', 'gato'],
+    special: true
+  },
+
+  // NUTRIÇÃO PARA CÃES
+  {
+    id: 'racao-cao-filhote',
+    name: 'Ração Cão Filhote Premium',
+    price: 110.00,
+    description: 'Ração premium para cães até 12 meses',
+    category: 'Nutrição para Cães',
+    tags: ['ração', 'cão', 'filhote', 'premium'],
+    popular: true
+  },
+  {
+    id: 'racao-cao-adulto-pp',
+    name: 'Ração Cão Adulto Porte Pequeno',
+    price: 125.00,
+    description: 'Para cães de pequeno porte',
+    category: 'Nutrição para Cães',
+    tags: ['ração', 'cão', 'adulto', 'pequeno'],
+    popular: true
+  },
+  {
+    id: 'racao-cao-adulto-mg',
+    name: 'Ração Cão Adulto Porte Médio/Grande',
+    price: 145.00,
+    description: 'Para cães de médio e grande porte',
+    category: 'Nutrição para Cães',
+    tags: ['ração', 'cão', 'adulto', 'médio', 'grande'],
+  },
+  {
+    id: 'racao-cao-senior',
+    name: 'Ração Cão Sênior',
+    price: 150.00,
+    description: 'Para cães acima de 7 anos',
+    category: 'Nutrição para Cães',
+    tags: ['ração', 'cão', 'sênior', 'idoso'],
+  },
+  {
+    id: 'racao-cao-light',
+    name: 'Ração Cão Light',
+    price: 140.00,
+    description: 'Controle de peso para cães',
+    category: 'Nutrição para Cães',
+    tags: ['ração', 'cão', 'light', 'peso'],
+    featured: true
+  },
+  {
+    id: 'sache-cao',
+    name: 'Sachê para Cães',
+    price: 7.00,
+    description: 'Alimentação úmida saborosa',
+    category: 'Nutrição para Cães',
+    tags: ['sachê', 'cão', 'úmida'],
+  },
+  {
+    id: 'petisco-cao',
+    name: 'Petiscos para Cães',
+    price: 20.00,
+    description: 'Snacks e bifinhos',
+    category: 'Nutrição para Cães',
+    tags: ['petisco', 'cão', 'bifinho'],
+  },
+  {
+    id: 'osso-cao',
+    name: 'Ossos e Mordedores',
+    price: 25.00,
+    description: 'Ossos naturais e sintéticos',
+    category: 'Nutrição para Cães',
+    tags: ['osso', 'mordedor', 'cão'],
+  },
+  {
+    id: 'racao-cao-hipoalergenica',
+    name: 'Ração Hipoalergênica',
+    price: 180.00,
+    description: 'Para cães com alergias alimentares',
+    category: 'Nutrição para Cães',
+    tags: ['ração', 'hipoalergênica', 'alergia', 'cão'],
+  },
+  {
+    id: 'racao-cao-renal',
+    name: 'Ração Suporte Renal',
+    price: 175.00,
+    description: 'Para cães com problemas renais',
+    category: 'Nutrição para Cães',
+    tags: ['ração', 'renal', 'cão', 'saúde'],
+  },
+  {
+    id: 'racao-cao-articulacoes',
+    name: 'Ração Suporte Articular',
+    price: 170.00,
+    description: 'Com glucosamina e condroitina',
+    category: 'Nutrição para Cães',
+    tags: ['ração', 'articulação', 'cão'],
+  },
+  {
+    id: 'alimentacao-natural-cao',
+    name: 'Alimentação Natural Cães',
+    price: 55.00,
+    description: 'Porções de AN congeladas',
+    category: 'Nutrição para Cães',
+    tags: ['alimentação natural', 'AN', 'cão'],
+    special: true
+  },
+  {
+    id: 'suplemento-omega',
+    name: 'Suplemento Ômega 3',
+    price: 65.00,
+    description: 'Para pelagem brilhante e saudável',
+    category: 'Nutrição para Cães',
+    tags: ['suplemento', 'ômega', 'pelagem', 'cão'],
+  },
+  {
+    id: 'biscoito-cao',
+    name: 'Biscoitos Funcionais',
+    price: 35.00,
+    description: 'Biscoitos com benefícios à saúde',
+    category: 'Nutrição para Cães',
+    tags: ['biscoito', 'funcional', 'cão'],
+  },
+  {
+    id: 'pasta-amendoim-pet',
+    name: 'Pasta de Amendoim Pet',
+    price: 32.00,
+    description: 'Sem xilitol, segura para pets',
+    category: 'Nutrição para Cães',
+    tags: ['pasta', 'amendoim', 'cão'],
+  },
+
+  // DAY CARE E HOTEL
+  {
+    id: 'daycare-diaria',
+    name: 'Day Care - Diária',
+    price: 80.00,
+    description: 'Creche diurna com atividades e socialização',
+    category: 'Day Care e Hotel',
+    tags: ['daycare', 'creche', 'diária'],
+    popular: true
+  },
+  {
+    id: 'daycare-pacote-5',
+    name: 'Day Care - Pacote 5 Diárias',
+    price: 350.00,
+    description: 'Pacote semanal com desconto',
+    category: 'Day Care e Hotel',
+    tags: ['daycare', 'pacote', 'semanal'],
+    featured: true
+  },
+  {
+    id: 'hotel-diaria',
+    name: 'Hotel Pet - Diária',
+    price: 120.00,
+    description: 'Hospedagem com acompanhamento 24h',
+    category: 'Day Care e Hotel',
+    tags: ['hotel', 'hospedagem', 'diária'],
+    popular: true
+  },
+  {
+    id: 'hotel-suite-vip',
+    name: 'Suíte VIP - Diária',
+    price: 180.00,
+    description: 'Acomodação premium com webcam',
+    category: 'Day Care e Hotel',
+    tags: ['hotel', 'vip', 'suíte', 'webcam'],
+    featured: true,
+    special: true
+  },
+  {
+    id: 'passeio-adicional',
+    name: 'Passeio Adicional',
+    price: 25.00,
+    description: 'Passeios extras durante a hospedagem',
+    category: 'Day Care e Hotel',
+    tags: ['passeio', 'adicional', 'hotel'],
+  },
+
+  // ESTÉTICA E SPA
+  {
+    id: 'banho-tosa-pequeno',
+    name: 'Banho e Tosa - Porte Pequeno',
+    price: 70.00,
+    description: 'Banho completo com tosa higiênica ou estética',
+    category: 'Estética e SPA',
+    tags: ['banho', 'tosa', 'pequeno'],
+    popular: true
+  },
+  {
+    id: 'banho-tosa-medio',
+    name: 'Banho e Tosa - Porte Médio',
+    price: 95.00,
+    description: 'Banho completo com tosa higiênica ou estética',
+    category: 'Estética e SPA',
+    tags: ['banho', 'tosa', 'médio'],
+    popular: true
+  },
+  {
+    id: 'banho-tosa-grande',
+    name: 'Banho e Tosa - Porte Grande',
+    price: 130.00,
+    description: 'Banho completo com tosa higiênica ou estética',
+    category: 'Estética e SPA',
+    tags: ['banho', 'tosa', 'grande'],
+  },
+  {
+    id: 'spa-completo',
+    name: 'SPA Completo',
+    price: 180.00,
+    description: 'Banho, tosa, hidratação e aromaterapia',
+    category: 'Estética e SPA',
+    tags: ['spa', 'completo', 'hidratação', 'aromaterapia'],
+    featured: true,
+    special: true
+  },
+  {
+    id: 'hidratacao-pelagem',
+    name: 'Hidratação de Pelagem',
+    price: 45.00,
+    description: 'Tratamento intensivo para pelos ressecados',
+    category: 'Estética e SPA',
+    tags: ['hidratação', 'pelagem', 'tratamento'],
+  },
+  {
+    id: 'tosa-tesoura',
+    name: 'Tosa na Tesoura',
+    price: 60.00,
+    description: 'Tosa artística feita à mão',
+    category: 'Estética e SPA',
+    tags: ['tosa', 'tesoura', 'artística'],
+  },
+  {
+    id: 'escovacao-dentes',
+    name: 'Escovação de Dentes',
+    price: 35.00,
+    description: 'Higiene bucal com pasta pet',
+    category: 'Estética e SPA',
+    tags: ['escovação', 'dentes', 'higiene'],
+  },
+  {
+    id: 'corte-unhas',
+    name: 'Corte de Unhas',
+    price: 25.00,
+    description: 'Corte e lixa das unhas',
+    category: 'Estética e SPA',
+    tags: ['unhas', 'corte', 'lixa'],
   }
 ];

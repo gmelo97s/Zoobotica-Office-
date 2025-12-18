@@ -2,84 +2,53 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Instagram, MessageCircle, MapPin, Clock, ChevronDown } from 'lucide-react';
-import supraLogoNew from '@/assets/supra-logo-new.png';
-import supraLogoIcon from '@/assets/supra-logo-icon.png';
-import leaoSupra from '@/assets/leao-supra.jpg';
-import mosaico01 from '@/assets/mosaico-01.jpg';
-import mosaico02 from '@/assets/mosaico-02.jpg';
-import mosaico03 from '@/assets/mosaico-03.jpg';
-import mosaico04 from '@/assets/mosaico-04.jpg';
-import mosaico05 from '@/assets/mosaico-05.jpg';
-import mosaico06 from '@/assets/mosaico-06.jpg';
-import { LightboxGallery } from '@/components/LightboxGallery';
+import zooboticaHero from '@/assets/zoobotica hero.png';
+
 const socialLinks = [{
   name: 'Instagram',
-  url: 'https://www.instagram.com/suprabarvilamadalena/',
+  url: 'https://www.instagram.com/zooboticapet/',
   icon: Instagram,
   color: 'text-neon-magenta',
-  label: '@suprabarvilamadalena'
+  label: '@zooboticapet'
 }, {
   name: 'WhatsApp',
-  url: 'https://api.whatsapp.com/send/?phone=5511912851547',
+  url: 'https://api.whatsapp.com/send/?phone=5511952685530',
   icon: MessageCircle,
   color: 'text-neon-green',
-  label: '(11) 91285-1547'
+  label: '(11) 95268-5530'
 }, {
   name: 'Localização',
-  url: 'https://www.google.com/maps/search/?api=1&query=R.+Mourato+Coelho+838+Vila+Madalena+São+Paulo+SP',
+  url: 'https://www.google.com/maps/search/?api=1&query=R.+Tabor+465+Ipiranga+São+Paulo+SP',
   icon: MapPin,
   color: 'text-neon-orange',
-  label: 'R. Mourato Coelho, 838 - Vila Madalena - SP'
+  label: 'R. Tabor, 465 - Ipiranga - SP'
 }];
+
 const schedule = [{
-  day: 'Quarta-feira',
-  hours: '17h - 01h'
-}, {
-  day: 'Quinta-feira',
-  hours: '17h - 01h'
-}, {
-  day: 'Sexta-feira',
-  hours: '17h - 04h'
+  day: 'Segunda à Sexta',
+  hours: '08h às 19h'
 }, {
   day: 'Sábado',
-  hours: '17h - 04h'
+  hours: '08h às 18h'
 }, {
   day: 'Domingo',
-  hours: '17h - 01h'
+  hours: '09h às 14h'
 }];
-const mosaicoImages = [{
-  src: mosaico01,
-  alt: 'Supra Bar - Escada e ambiente'
-}, {
-  src: mosaico02,
-  alt: 'Supra Bar - Brinde com cervejas'
-}, {
-  src: mosaico03,
-  alt: 'Supra Bar - Mural do leão'
-}, {
-  src: mosaico04,
-  alt: 'Supra Bar - Bartender preparando drink'
-}, {
-  src: mosaico05,
-  alt: 'Supra Bar - Mesa com bebidas'
-}, {
-  src: mosaico06,
-  alt: 'Supra Bar - Fachada'
-}];
+
 export const Landing = () => {
   const navigate = useNavigate();
-  const scrollToMosaic = () => {
-    document.getElementById('ambiente')?.scrollIntoView({
+  const scrollToInfo = () => {
+    document.getElementById('info')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
+
   return <div className="min-h-screen">
       {/* First Fold - Hero */}
-      <section className="min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 relative overflow-hidden">
-        {/* Background with lion image */}
+      <section className="min-h-screen flex flex-col items-center justify-end p-4 sm:p-6 relative overflow-hidden">
+        {/* Background with zoobotica image */}
         <div className="absolute inset-0 -z-10">
-          <img src={leaoSupra} alt="Supra Lion" className="w-full h-full object-cover blur-sm opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
+          <img src={zooboticaHero} alt="Zoobotica Hero" className="w-full h-full object-cover" />
         </div>
         
         {/* Floating particles */}
@@ -98,29 +67,34 @@ export const Landing = () => {
         }} />)}
         </div>
         
-        {/* Main content */}
-        <div className="flex-1 flex flex-col items-center justify-center max-w-md w-full space-y-8 text-center relative z-10">
-          {/* Logo */}
-          <motion.div initial={{
-          scale: 0.8,
-          opacity: 0
-        }} animate={{
-          scale: 1,
-          opacity: 1
-        }} transition={{
-          duration: 0.5
-        }} className="relative">
-            <motion.img src={supraLogoNew} alt="Supra Bar Logo" className="w-56 md:w-64 mx-auto" animate={{
-            filter: ['drop-shadow(0 0 15px hsl(45 100% 50% / 0.3))', 'drop-shadow(0 0 25px hsl(45 100% 50% / 0.5))', 'drop-shadow(0 0 15px hsl(45 100% 50% / 0.3))']
-          }} transition={{
-            duration: 2,
-            repeat: Infinity
-          }} />
+        {/* Área de Botões - Fixada no rodapé */}
+        <div className="w-full max-w-md flex flex-col items-center gap-4 pb-4 relative z-10">
+          {/* Botão Explorar */}
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }} 
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="w-full px-4"
+          >
+            <Button 
+              onClick={() => navigate('/cardapio')} 
+              size="lg" 
+              className="w-full gradient-sunset text-white font-bold text-lg py-6 rounded-xl hover:scale-105 transition-transform duration-300 glow-orange"
+            >
+              EXPLORAR
+              <motion.span 
+                animate={{ x: [0, 5, 0] }} 
+                transition={{ duration: 1.5, repeat: Infinity }} 
+                className="ml-2"
+              >
+                →
+              </motion.span>
+            </Button>
           </motion.div>
-          
-          {/* Stylized Title */}
+
+          {/* Ícones Sociais */}
           <motion.div initial={{
-          y: 20,
+          y: 10,
           opacity: 0
         }} animate={{
           y: 0,
@@ -128,185 +102,58 @@ export const Landing = () => {
         }} transition={{
           delay: 0.2,
           duration: 0.5
-        }} className="space-y-3">
-            <motion.h1 className="text-4xl md:text-5xl font-black text-foreground tracking-wider uppercase font-bebas" initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0,
-            textShadow: ['0 0 20px hsl(var(--neon-orange) / 0.5), 0 0 40px hsl(var(--neon-orange) / 0.3)', '0 0 30px hsl(var(--neon-orange) / 0.7), 0 0 60px hsl(var(--neon-orange) / 0.4)', '0 0 20px hsl(var(--neon-orange) / 0.5), 0 0 40px hsl(var(--neon-orange) / 0.3)']
-          }} transition={{
-            opacity: {
-              duration: 0.8,
-              delay: 0.3
-            },
-            y: {
-              duration: 0.8,
-              delay: 0.3,
-              type: 'spring'
-            },
-            textShadow: {
-              duration: 3,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }
-          }}>
-              MUITO MAIS QUE UM BAR!
-            </motion.h1>
-            <div className="flex items-center justify-center gap-2 text-2xl">
-              <span className="text-neon-orange font-bold text-base">Vila Madalena</span>
-            </div>
-          </motion.div>
-          
-          {/* CTA Button */}
-          <motion.div initial={{
-          y: 20,
-          opacity: 0
-        }} animate={{
-          y: 0,
-          opacity: 1
-        }} transition={{
-          delay: 0.4,
-          duration: 0.5
-        }}>
-            <Button onClick={() => navigate('/cardapio')} size="lg" className="w-full gradient-sunset text-white font-bold text-lg py-6 rounded-xl hover:scale-105 transition-transform duration-300 glow-orange">
-              VER CARDÁPIO COMPLETO
-              <motion.span animate={{
-              x: [0, 5, 0]
-            }} transition={{
-              duration: 1.5,
-              repeat: Infinity
-            }} className="ml-2">
-                →
-              </motion.span>
-            </Button>
-          </motion.div>
-          
-          {/* Social Links */}
-          <motion.div initial={{
-          y: 20,
-          opacity: 0
-        }} animate={{
-          y: 0,
-          opacity: 1
-        }} transition={{
-          delay: 0.6,
-          duration: 0.5
-        }} className="flex gap-4 justify-center">
-            <motion.a href="https://www.instagram.com/suprabarvilamadalena/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300" whileHover={{
+        }} className="flex gap-5 justify-center">
+            <motion.a href="https://www.instagram.com/zooboticapet/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center transition-all duration-300" whileHover={{
             scale: 1.1
           }} whileTap={{
             scale: 0.95
           }} animate={{
-            boxShadow: ['0 0 15px hsl(var(--neon-magenta) / 0.4)', '0 0 25px hsl(var(--neon-magenta) / 0.6)', '0 0 15px hsl(var(--neon-magenta) / 0.4)']
+            boxShadow: ['0 0 10px hsl(var(--neon-magenta) / 0.3)', '0 0 20px hsl(var(--neon-magenta) / 0.5)', '0 0 10px hsl(var(--neon-magenta) / 0.3)']
           }} transition={{
             duration: 2,
             repeat: Infinity
           }}>
               <Instagram className="text-neon-magenta" size={24} />
             </motion.a>
-            <motion.a href="https://api.whatsapp.com/send/?phone=5511912851547" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300" whileHover={{
+            <motion.a href="https://api.whatsapp.com/send/?phone=5511952685530" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center transition-all duration-300" whileHover={{
             scale: 1.1
           }} whileTap={{
             scale: 0.95
           }} animate={{
-            boxShadow: ['0 0 15px hsl(var(--neon-green) / 0.4)', '0 0 25px hsl(var(--neon-green) / 0.6)', '0 0 15px hsl(var(--neon-green) / 0.4)']
+            boxShadow: ['0 0 10px hsl(var(--neon-green) / 0.3)', '0 0 20px hsl(var(--neon-green) / 0.5)', '0 0 10px hsl(var(--neon-green) / 0.3)']
           }} transition={{
             duration: 2,
             repeat: Infinity
           }}>
               <MessageCircle className="text-neon-green" size={24} />
             </motion.a>
-            <motion.a href="https://suprabar.com.br/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full glass flex items-center justify-center transition-all duration-300 overflow-hidden" whileHover={{
-            scale: 1.1
-          }} whileTap={{
-            scale: 0.95
-          }} animate={{
-            boxShadow: ['0 0 15px hsl(var(--neon-orange) / 0.4)', '0 0 25px hsl(var(--neon-orange) / 0.6)', '0 0 15px hsl(var(--neon-orange) / 0.4)']
+          </motion.div>
+
+          {/* Botão de Scroll */}
+          <motion.button onClick={scrollToInfo} className="flex flex-col items-center gap-1 text-muted-foreground/80 hover:text-neon-orange transition-colors" initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 0.5,
+          duration: 0.5
+        }}>
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Informações</span>
+            <motion.div animate={{
+            y: [0, 4, 0]
           }} transition={{
-            duration: 2,
-            repeat: Infinity
+            duration: 1.5,
+            repeat: Infinity,
+            ease: 'easeInOut'
           }}>
-              <img src={supraLogoIcon} alt="Supra Bar" className="w-9 h-9 object-contain" />
-            </motion.a>
-          </motion.div>
-        </div>
-
-        {/* Scroll CTA - positioned at bottom */}
-        <motion.button onClick={scrollToMosaic} className="flex flex-col items-center gap-2 text-muted-foreground hover:text-neon-orange transition-colors pb-6" initial={{
-        opacity: 0
-      }} animate={{
-        opacity: 1
-      }} transition={{
-        delay: 1,
-        duration: 0.5
-      }}>
-          <span className="text-sm font-medium">Nosso Ambiente</span>
-          <motion.div animate={{
-          y: [0, 8, 0]
-        }} transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}>
-            <ChevronDown size={24} />
-          </motion.div>
-        </motion.button>
-      </section>
-
-      {/* Second Fold - Mosaic */}
-      <section id="ambiente" className="py-12 px-4 sm:px-6 bg-gradient-to-b from-background to-background/95">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <motion.div className="text-center space-y-2" initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.5
-        }}>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground uppercase text-glow-orange font-bebas tracking-wider">
-              Conheça Nosso Ambiente
-            </h2>
-            <p className="text-muted-foreground">Toque nas fotos para ampliar</p>
-          </motion.div>
-
-          <LightboxGallery images={mosaicoImages} />
-
-          {/* CTA Button */}
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          delay: 0.3,
-          duration: 0.5
-        }} className="pt-4">
-            <Button onClick={() => navigate('/cardapio')} size="lg" className="w-full gradient-sunset text-white font-bold text-lg py-6 rounded-xl hover:scale-105 transition-transform duration-300 glow-orange">
-              VER CARDÁPIO COMPLETO
-              <motion.span animate={{
-              x: [0, 5, 0]
-            }} transition={{
-              duration: 1.5,
-              repeat: Infinity
-            }} className="ml-2">
-                →
-              </motion.span>
-            </Button>
-          </motion.div>
+              <ChevronDown size={18} />
+            </motion.div>
+          </motion.button>
         </div>
       </section>
 
-      {/* Third Fold - Contact & Info */}
-      <section className="py-12 px-4 sm:px-6">
+      {/* Second Fold - Contact & Info */}
+      <section id="info" className="py-12 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Schedule */}
           <motion.div initial={{
@@ -361,7 +208,7 @@ export const Landing = () => {
 
           {/* Copyright */}
           <div className="text-center text-sm text-muted-foreground pt-4 border-t border-border">
-            <p>© 2025 Supra Bar Vila Madalena. Muito mais que um bar.</p>
+            <p>© 2025 Zoobotica Pet Shop. Cuidado e carinho para o seu pet.</p>
           </div>
         </div>
       </section>

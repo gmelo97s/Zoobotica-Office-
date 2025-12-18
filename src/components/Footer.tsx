@@ -4,33 +4,31 @@ import { motion } from 'framer-motion';
 const socialLinks = [
   {
     name: 'Instagram',
-    url: 'https://www.instagram.com/suprabarvilamadalena/',
+    url: 'https://www.instagram.com/zooboticapet/',
     icon: Instagram,
     color: 'text-neon-magenta',
-    label: '@suprabarvilamadalena'
+    label: '@zooboticapet'
   },
   {
     name: 'WhatsApp',
-    url: 'https://api.whatsapp.com/send/?phone=5511912851547',
+    url: 'https://api.whatsapp.com/send/?phone=5511952685530',
     icon: MessageCircle,
     color: 'text-neon-green',
-    label: '(11) 91285-1547'
+    label: '(11) 95268-5530'
   },
   {
     name: 'Localização',
-    url: 'https://www.google.com/maps/search/?api=1&query=R.+Mourato+Coelho+838+Vila+Madalena+São+Paulo+SP',
+    url: 'https://www.google.com/maps/search/?api=1&query=R.+Tabor+465+Ipiranga+São+Paulo+SP',
     icon: MapPin,
     color: 'text-neon-orange',
-    label: 'R. Mourato Coelho, 838 - Vila Madalena - SP'
+    label: 'R. Tabor, 465 - Ipiranga - SP'
   }
 ];
 
 const schedule = [
-  { day: 'Quarta-feira', hours: '17h - 01h' },
-  { day: 'Quinta-feira', hours: '17h - 01h' },
-  { day: 'Sexta-feira', hours: '17h - 04h', highlight: true },
-  { day: 'Sábado', hours: '17h - 04h', highlight: true },
-  { day: 'Domingo', hours: '17h - 01h' }
+  { day: 'Segunda à Sexta', hours: '08h às 19h' },
+  { day: 'Sábado', hours: '08h às 18h' },
+  { day: 'Domingo', hours: '09h às 14h' }
 ];
 
 export const Footer = () => {
@@ -53,11 +51,11 @@ export const Footer = () => {
                 key={item.day}
                 className="flex justify-between items-center text-sm"
               >
-                <span className={item.highlight ? 'font-semibold text-foreground' : 'text-muted-foreground'}>
+                <span className="text-muted-foreground">
                   {item.day}:
                 </span>
-                <span className={item.highlight ? 'font-bold text-neon-orange' : 'text-muted-foreground'}>
-                  {item.hours} {item.highlight && '🔥'}
+                <span className="text-muted-foreground">
+                  {item.hours}
                 </span>
               </div>
             ))}
@@ -90,7 +88,7 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-sm text-muted-foreground pt-4 border-t border-border">
-          <p>© 2025 Supra Bar Vila Madalena. Muito mais que um bar 🔥</p>
+          <p>© 2025 Zoobotica Pet Shop. Cuidado e carinho para o seu pet 🐾</p>
         </div>
       </div>
     </footer>

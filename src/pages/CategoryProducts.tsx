@@ -22,62 +22,41 @@ export const CategoryProducts = () => {
             onClick={() => navigate('/cardapio')}
             className="text-neon-orange hover:underline"
           >
-            ← Voltar ao cardápio
+            ← Voltar ao catálogo
           </button>
         </div>
       </div>
     );
   }
   
-  // Filter products by category or subcategory
+  // Filter products by category
   const categoryProducts = products.filter(p => {
-    if (categoryId === 'whiskys') {
-      return p.subcategory === 'Whiskys & Destilados';
+    if (categoryId === 'servicos-clinica') {
+      return p.category === 'Serviços de Clínica';
     }
-    if (categoryId === 'runs-cachacas') {
-      return p.category === 'Runs & Cachaças';
+    if (categoryId === 'eventos-especiais') {
+      return p.category === 'Eventos e Especiais';
     }
-    if (categoryId === 'vodkas') {
-      return p.category === 'Vodkas';
+    if (categoryId === 'boutique-acessorios') {
+      return p.category === 'Boutique e Acessórios';
     }
-    if (categoryId === 'gins') {
-      return p.category === 'Gins';
+    if (categoryId === 'farmacia-pet') {
+      return p.category === 'Farmácia Pet';
     }
-    if (categoryId === 'cervejas') {
-      return p.subcategory === 'Cervejas';
+    if (categoryId === 'nutricao-gatos') {
+      return p.category === 'Nutrição para Gatos';
     }
-    if (categoryId === 'drinks') {
-      return p.subcategory === 'Drinks & Coquetéis';
+    if (categoryId === 'nutricao-caes') {
+      return p.category === 'Nutrição para Cães';
     }
-    if (categoryId === 'porcoes') {
-      return p.category === 'Porções & Petiscos';
+    if (categoryId === 'daycare-hotel') {
+      return p.category === 'Day Care e Hotel';
     }
-    if (categoryId === 'combos') {
-      return p.category === 'Combos & Promoções';
-    }
-    if (categoryId === 'aniversarios') {
-      return p.category === 'Aniversários';
-    }
-    if (categoryId === 'abriu-bebeu') {
-      return p.category === 'Abriu Bebeu';
-    }
-    if (categoryId === 'shots') {
-      return p.category === 'Shots';
+    if (categoryId === 'estetica-spa') {
+      return p.category === 'Estética e SPA';
     }
     return false;
   });
-  
-  // Group products by subcategory if needed
-  const groupedProducts: Record<string, typeof categoryProducts> = {};
-  categoryProducts.forEach(product => {
-    const group = product.category;
-    if (!groupedProducts[group]) {
-      groupedProducts[group] = [];
-    }
-    groupedProducts[group].push(product);
-  });
-  
-  const hasMultipleGroups = Object.keys(groupedProducts).length > 1;
   
   return (
     <div className="min-h-screen pb-20">
@@ -112,36 +91,15 @@ export const CategoryProducts = () => {
       
       {/* Products List */}
       <div className="max-w-7xl mx-auto p-4">
-        {hasMultipleGroups ? (
-          <div className="space-y-8">
-            {Object.entries(groupedProducts).map(([group, items]) => (
-              <div key={group}>
-                <h2 className="text-lg font-bold text-neon-orange mb-4 sticky top-[73px] bg-background/95 backdrop-blur-sm py-2 z-40">
-                  {group}
-                </h2>
-                <div className="space-y-3">
-                  {items.map((product, index) => (
-                    <ProductCard
-                      key={product.id}
-                      product={product}
-                      delay={index * 0.05}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="space-y-3">
-            {categoryProducts.map((product, index) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                delay={index * 0.05}
-              />
-            ))}
-          </div>
-        )}
+        <div className="space-y-3">
+          {categoryProducts.map((product, index) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              delay={index * 0.05}
+            />
+          ))}
+        </div>
         
         {categoryProducts.length === 0 && (
           <motion.div
@@ -149,7 +107,7 @@ export const CategoryProducts = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-12"
           >
-            <div className="text-6xl mb-4">🍹</div>
+            <div className="text-6xl mb-4">🐾</div>
             <h3 className="text-xl font-bold text-foreground mb-2">
               Em breve!
             </h3>
