@@ -90,7 +90,7 @@ export const products: Product[] = [
     description: '',
     category: 'Serviços de Clínica',
     tags: ['consulta', 'veterinário', 'saúde', 'clínica'],
-    popular: true
+
   },
   {
     id: 'vacina-v8-v10',
@@ -99,7 +99,7 @@ export const products: Product[] = [
     description: '',
     category: 'Serviços de Clínica',
     tags: ['vacina', 'v8', 'v10', 'cão', 'imunização'],
-    popular: true
+
   },
   {
     id: 'vacina-triplice-felina',
@@ -192,7 +192,7 @@ export const products: Product[] = [
     description: '',
     category: 'Boutique e Acessórios',
     tags: ['coleira', 'couro', 'premium'],
-    popular: true
+
   },
   {
     id: 'guia-retrátil-5m',
@@ -201,7 +201,7 @@ export const products: Product[] = [
     description: '',
     category: 'Boutique e Acessórios',
     tags: ['guia', 'retrátil', 'passeio'],
-    popular: true
+
   },
   {
     id: 'peitoral-anti-puxao',
@@ -252,7 +252,7 @@ export const products: Product[] = [
     description: '',
     category: 'Boutique e Acessórios',
     tags: ['brinquedo', 'kong', 'interativo'],
-    popular: true
+
   },
   {
     id: 'arranhador-torre',
@@ -295,7 +295,7 @@ export const products: Product[] = [
     description: '',
     category: 'Farmácia Pet',
     tags: ['antipulgas', 'carrapatos', 'bravecto'],
-    popular: true
+
   },
   {
     id: 'nexgard-caes-4-10kg',
@@ -304,7 +304,7 @@ export const products: Product[] = [
     description: '',
     category: 'Farmácia Pet',
     tags: ['antipulgas', 'carrapatos', 'nexgard'],
-    popular: true
+
   },
   {
     id: 'revolution-gatos',
@@ -396,7 +396,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Gatos',
     tags: ['ração', 'royal canin', 'indoor', 'gato'],
-    popular: true,
+
     featured: true
   },
   {
@@ -406,7 +406,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Gatos',
     tags: ['ração', 'premier', 'castrado', 'gato'],
-    popular: true
+
   },
   {
     id: 'golden-gatos-filhotes-3kg',
@@ -499,7 +499,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Cães',
     tags: ['ração', 'royal canin', 'médio', 'cão'],
-    popular: true,
+
     featured: true
   },
   {
@@ -509,7 +509,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Cães',
     tags: ['ração', 'golden', 'adulto', 'cão'],
-    popular: true
+
   },
   {
     id: 'premier-filhotes-12kg',
@@ -577,7 +577,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Cães',
     tags: ['petisco', 'bifinho', 'cão'],
-    popular: true
+
   },
   {
     id: 'osso-natural-grande',
@@ -629,7 +629,7 @@ export const products: Product[] = [
     description: '',
     category: 'Day Care e Hotel',
     tags: ['daycare', 'creche', 'diária'],
-    popular: true
+
   },
   {
     id: 'daycare-pacote-5',
@@ -655,7 +655,7 @@ export const products: Product[] = [
     description: '',
     category: 'Day Care e Hotel',
     tags: ['hotel', 'hospedagem', 'diária'],
-    popular: true
+
   },
   {
     id: 'hotel-suite-vip',
@@ -716,7 +716,7 @@ export const products: Product[] = [
     description: '',
     category: 'Banho e Tosa',
     tags: ['banho', 'pequeno'],
-    popular: true
+
   },
   {
     id: 'banho-medio',
@@ -725,7 +725,7 @@ export const products: Product[] = [
     description: '',
     category: 'Banho e Tosa',
     tags: ['banho', 'médio'],
-    popular: true
+
   },
   {
     id: 'banho-grande',

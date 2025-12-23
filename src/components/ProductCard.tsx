@@ -12,7 +12,7 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product, delay = 0 }: ProductCardProps) => {
   const { addItem } = useCart();
-  const showBadges = product.featured || product.popular || product.special || product.promo;
+  const showBadges = product.featured || product.special || product.promo;
   
   const handleAddToCart = () => {
     if (product.price) {
@@ -47,11 +47,6 @@ export const ProductCard = ({ product, delay = 0 }: ProductCardProps) => {
               {product.featured && (
                 <span className="px-2 py-1 rounded-full bg-neon-orange/20 text-neon-orange text-xs font-semibold">
                   ✨ Destaque
-                </span>
-              )}
-              {product.popular && (
-                <span className="px-2 py-1 rounded-full bg-neon-magenta/20 text-neon-magenta text-xs font-semibold">
-                  🔥 Popular
                 </span>
               )}
               {product.special && (
