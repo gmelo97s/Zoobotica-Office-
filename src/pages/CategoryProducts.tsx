@@ -34,9 +34,6 @@ export const CategoryProducts = () => {
     if (categoryId === 'servicos-clinica') {
       return p.category === 'Serviços de Clínica';
     }
-    if (categoryId === 'eventos-especiais') {
-      return p.category === 'Eventos e Especiais';
-    }
     if (categoryId === 'boutique-acessorios') {
       return p.category === 'Boutique e Acessórios';
     }
@@ -52,8 +49,8 @@ export const CategoryProducts = () => {
     if (categoryId === 'daycare-hotel') {
       return p.category === 'Day Care e Hotel';
     }
-    if (categoryId === 'estetica-spa') {
-      return p.category === 'Estética e SPA';
+    if (categoryId === 'banho-tosa') {
+      return p.category === 'Banho e Tosa';
     }
     return false;
   });
