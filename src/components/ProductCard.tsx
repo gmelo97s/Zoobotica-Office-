@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Product } from '@/data/menu';
 import { formatPrice } from '@/utils/textUtils';
-import { Sparkles, Plus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
 
@@ -12,7 +12,7 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product, delay = 0 }: ProductCardProps) => {
   const { addItem } = useCart();
-  const showBadges = product.featured || product.special || product.promo;
+  const showBadges = product.promo;
   
   const handleAddToCart = () => {
     if (product.price) {
@@ -30,9 +30,6 @@ export const ProductCard = ({ product, delay = 0 }: ProductCardProps) => {
       <div className="flex justify-between items-start gap-3">
         <div className="flex-1 min-w-0">
           <div className="flex items-start gap-2 mb-2">
-            {product.special && (
-              <Sparkles className="text-neon-magenta flex-shrink-0 mt-1" size={16} />
-            )}
             <h3 className="font-bold text-lg text-foreground group-hover:text-neon-orange transition-colors">
               {product.name}
             </h3>
@@ -44,16 +41,6 @@ export const ProductCard = ({ product, delay = 0 }: ProductCardProps) => {
           
           {showBadges && (
             <div className="flex flex-wrap gap-2 mb-2">
-              {product.featured && (
-                <span className="px-2 py-1 rounded-full bg-neon-orange/20 text-neon-orange text-xs font-semibold">
-                  ✨ Destaque
-                </span>
-              )}
-              {product.special && (
-                <span className="px-2 py-1 rounded-full bg-neon-purple/20 text-neon-purple text-xs font-semibold">
-                  ⭐ Especial
-                </span>
-              )}
               {product.promo && (
                 <span className="px-2 py-1 rounded-full bg-neon-green/20 text-neon-green text-xs font-semibold">
                   💰 Promoção

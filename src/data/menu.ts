@@ -124,7 +124,7 @@ export const products: Product[] = [
     description: '',
     category: 'Serviços de Clínica',
     tags: ['castração', 'cirurgia', 'macho'],
-    featured: true
+
   },
   {
     id: 'castracao-femea-pp',
@@ -133,7 +133,7 @@ export const products: Product[] = [
     description: '',
     category: 'Serviços de Clínica',
     tags: ['castração', 'cirurgia', 'fêmea'],
-    featured: true
+
   },
   {
     id: 'exame-hemograma',
@@ -210,7 +210,7 @@ export const products: Product[] = [
     description: '',
     category: 'Boutique e Acessórios',
     tags: ['peitoral', 'passeio', 'treinamento'],
-    featured: true
+
   },
   {
     id: 'cama-ortopedica-m',
@@ -219,7 +219,7 @@ export const products: Product[] = [
     description: '',
     category: 'Boutique e Acessórios',
     tags: ['cama', 'ortopédica', 'conforto'],
-    featured: true
+
   },
   {
     id: 'cama-iglu-gato',
@@ -337,7 +337,7 @@ export const products: Product[] = [
     description: '',
     category: 'Farmácia Pet',
     tags: ['shampoo', 'clorexidina', 'dermatológico'],
-    featured: true
+
   },
   {
     id: 'condroitina-glucosamina',
@@ -397,7 +397,7 @@ export const products: Product[] = [
     category: 'Nutrição para Gatos',
     tags: ['ração', 'royal canin', 'indoor', 'gato'],
 
-    featured: true
+
   },
   {
     id: 'premier-gatos-castrados-3kg',
@@ -439,7 +439,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Gatos',
     tags: ['ração', 'renal', 'veterinária', 'gato'],
-    special: true
+
   },
   {
     id: 'hills-urinary-1-8kg',
@@ -448,7 +448,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Gatos',
     tags: ['ração', 'hills', 'urinário', 'gato'],
-    special: true
+
   },
   {
     id: 'dreamies-petisco-40g',
@@ -500,7 +500,7 @@ export const products: Product[] = [
     category: 'Nutrição para Cães',
     tags: ['ração', 'royal canin', 'médio', 'cão'],
 
-    featured: true
+
   },
   {
     id: 'golden-formula-adulto-15kg',
@@ -526,7 +526,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Cães',
     tags: ['ração', 'hills', 'adulto', 'cão'],
-    featured: true
+
   },
   {
     id: 'pedigree-adulto-15kg',
@@ -551,7 +551,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Cães',
     tags: ['ração', 'hipoalergênica', 'alergia', 'cão'],
-    special: true
+
   },
   {
     id: 'hills-metabolic-12kg',
@@ -560,7 +560,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Cães',
     tags: ['ração', 'hills', 'light', 'peso', 'cão'],
-    special: true
+
   },
   {
     id: 'sache-pedigree-100g',
@@ -618,7 +618,7 @@ export const products: Product[] = [
     description: '',
     category: 'Nutrição para Cães',
     tags: ['alimentação natural', 'AN', 'cão'],
-    special: true
+
   },
 
   // ========== DAY CARE E HOTEL (10 itens) ==========
@@ -638,7 +638,7 @@ export const products: Product[] = [
     description: '',
     category: 'Day Care e Hotel',
     tags: ['daycare', 'pacote', 'semanal'],
-    featured: true
+
   },
   {
     id: 'daycare-pacote-10',
@@ -664,8 +664,8 @@ export const products: Product[] = [
     description: '',
     category: 'Day Care e Hotel',
     tags: ['hotel', 'vip', 'suíte', 'webcam'],
-    featured: true,
-    special: true
+
+
   },
   {
     id: 'hotel-pacote-5',
@@ -742,7 +742,7 @@ export const products: Product[] = [
     description: '',
     category: 'Banho e Tosa',
     tags: ['banho', 'tosa', 'pequeno'],
-    featured: true
+
   },
   {
     id: 'banho-tosa-medio',
@@ -751,7 +751,7 @@ export const products: Product[] = [
     description: '',
     category: 'Banho e Tosa',
     tags: ['banho', 'tosa', 'médio'],
-    featured: true
+
   },
   {
     id: 'banho-tosa-grande',
@@ -784,7 +784,7 @@ export const products: Product[] = [
     description: '',
     category: 'Banho e Tosa',
     tags: ['hidratação', 'pelagem', 'tratamento'],
-    special: true
+
   },
   {
     id: 'spa-completo',
@@ -793,8 +793,8 @@ export const products: Product[] = [
     description: '',
     category: 'Banho e Tosa',
     tags: ['spa', 'completo', 'hidratação', 'massagem'],
-    featured: true,
-    special: true
+
+
   },
   {
     id: 'banho-gato',
