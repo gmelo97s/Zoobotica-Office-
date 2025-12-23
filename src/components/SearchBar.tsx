@@ -11,10 +11,10 @@ interface SearchBarProps {
 }
 
 const placeholders = [
-  'Buscar drinks, shots, porções...',
-  'Ex: caipirinha, whisky, batata...',
-  'Digite qualquer bebida ou petisco...',
-  'Licor 43, Xeque-Mate, Mojito...'
+  'Buscar produtos para seu pet...',
+  'Ex: ração, coleira, brinquedo...',
+  'Digite o que você procura...',
+  'Banho, tosa, vacina, sachê...'
 ];
 
 export const SearchBar = ({ value, onChange, onClear, className }: SearchBarProps) => {

@@ -11,12 +11,12 @@ interface SearchResultsProps {
 }
 
 const popularSuggestions = [
-  'Caipirinha',
-  'Jack Daniels',
-  'Licor 43',
-  'Xeque-Mate',
-  'Batata Frita',
-  'Santo Mel'
+  'Ração Golden',
+  'Banho e Tosa',
+  'Vacina V10',
+  'Coleira',
+  'Sachê',
+  'Antipulgas'
 ];
 
 export const SearchResults = ({ 
