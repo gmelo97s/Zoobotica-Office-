@@ -9,12 +9,32 @@ import { useSearch } from '@/hooks/useSearch';
 import { useDebounce } from '@/hooks/useDebounce';
 import { Product } from '@/data/menu';
 
+// Importação das imagens
+import clinicaImg from '@/assets/clinica.jpg';
+import coleiraImg from '@/assets/coleira.jpg';
+import farmaciaImg from '@/assets/farmacia pet.jpg';
+import gatosImg from '@/assets/gatos.jpg';
+import cachorrosImg from '@/assets/cachorros.jpg';
+import hotelImg from '@/assets/hotel.jpg';
+import banhoTosaImg from '@/assets/banho e tosa.jpg';
+
+// Mapeamento de imagens por ID da categoria
+const categoryImages: Record<string, string> = {
+  'servicos-clinica': clinicaImg,
+  'boutique-acessorios': coleiraImg,
+  'farmacia-pet': farmaciaImg,
+  'nutricao-gatos': gatosImg,
+  'nutricao-caes': cachorrosImg,
+  'daycare-hotel': hotelImg,
+  'banho-tosa': banhoTosaImg,
+};
+
 export const Categories = () => {
   const navigate = useNavigate();
   const { query, setQuery, results } = useSearch(products);
   const debouncedQuery = useDebounce(query, 300);
   const [showResults, setShowResults] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(4); // Inicia em Nutrição para Cães
   
   const handleSearchChange = (value: string) => {
     setQuery(value);
@@ -158,6 +178,8 @@ export const Categories = () => {
                     const position = getCardPosition(index);
                     if (position === 'hidden') return null;
 
+                    const categoryImage = categoryImages[category.id];
+
                     return (
                       <motion.div
                         key={category.id}
@@ -193,24 +215,31 @@ export const Categories = () => {
                           whileHover={position === 'center' ? { scale: 1.02 } : {}}
                           whileTap={position === 'center' ? { scale: 0.98 } : {}}
                         >
-                          {/* Background Gradient */}
+                          {/* Background Image */}
                           <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '0.875rem' }}>
-                            <div 
-                              className="w-full h-full"
-                              style={{ background: category.gradient || 'linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-magenta)) 100%)' }}
-                            />
+                            {categoryImage ? (
+                              <img 
+                                src={categoryImage} 
+                                alt={category.name}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div 
+                                className="w-full h-full"
+                                style={{ background: category.gradient || 'linear-gradient(135deg, hsl(var(--neon-orange)) 0%, hsl(var(--neon-magenta)) 100%)' }}
+                              />
+                            )}
                           </div>
 
                           {/* Gradient Overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
                           {/* Content */}
-                          <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                            <span className="text-5xl md:text-6xl mb-4">{category.icon}</span>
+                          <div className="absolute inset-0 flex flex-col items-center justify-end p-4 pb-6">
                             <h2 
                               className="text-lg md:text-xl font-bold text-white mb-1 uppercase text-center"
                               style={{
-                                textShadow: position === 'center' ? '0 0 15px hsl(28 100% 55% / 0.8)' : 'none'
+                                textShadow: '0 0 15px hsl(28 100% 55% / 0.8), 0 2px 4px rgba(0,0,0,0.8)'
                               }}
                             >
                               {category.name}
